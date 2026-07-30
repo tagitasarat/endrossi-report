@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="ENDROSSI — รายงานสแกนตลาดหุ้น US ประจำรอบ (เครื่องมือช่วยคิด ไม่ใช่คำแนะนำการลงทุน)">
+<title>ENDROSSI — รายงานประจำรอบ</title>
+<style>*{box-sizing:border-box}html,body{margin:0;padding:0}img{max-width:100%}</style>
+</head>
+<body>
+<style>
+  :root{
+    --paper:#FBFAF6; --card:#FFFFFF; --ink:#141C28; --ink-2:#3C4757; --ink-3:#6B7688;
+    --line:#E3E1DA; --line-2:#EFEDE7;
+    --accent:#2E5F8F; --accent-soft:#E8EFF6;
+    --buy:#127A56; --buy-soft:#E4F2EC;
+    --wait:#B26205; --wait-soft:#FBF0E0;
+    --avoid:#B32D23; --avoid-soft:#FAE9E7;
+    --hold:#5D6B7E; --hold-soft:#EDEFF2;
+    --mono:ui-monospace,"SF Mono","Cascadia Mono","Roboto Mono",Menlo,monospace;
+    --thai:"Noto Sans Thai","Sarabun","IBM Plex Sans Thai","Leelawadee UI",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --paper:#141C28; --card:#1B2534; --ink:#EDF1F6; --ink-2:#B4BECC; --ink-3:#8593A5;
+      --line:#2C3849; --line-2:#232E3D;
+      --accent:#7FB3E0; --accent-soft:#1E2E42;
+      --buy:#4FC898; --buy-soft:#152E27;
+      --wait:#E8A34A; --wait-soft:#312614;
+      --avoid:#F0766A; --avoid-soft:#33201E;
+      --hold:#93A2B5; --hold-soft:#222C3A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#141C28; --card:#1B2534; --ink:#EDF1F6; --ink-2:#B4BECC; --ink-3:#8593A5;
+    --line:#2C3849; --line-2:#232E3D;
+    --accent:#7FB3E0; --accent-soft:#1E2E42;
+    --buy:#4FC898; --buy-soft:#152E27;
+    --wait:#E8A34A; --wait-soft:#312614;
+    --avoid:#F0766A; --avoid-soft:#33201E;
+    --hold:#93A2B5; --hold-soft:#222C3A;
+  }
+  :root[data-theme="light"]{
+    --paper:#FBFAF6; --card:#FFFFFF; --ink:#141C28; --ink-2:#3C4757; --ink-3:#6B7688;
+    --line:#E3E1DA; --line-2:#EFEDE7;
+    --accent:#2E5F8F; --accent-soft:#E8EFF6;
+    --buy:#127A56; --buy-soft:#E4F2EC;
+    --wait:#B26205; --wait-soft:#FBF0E0;
+    --avoid:#B32D23; --avoid-soft:#FAE9E7;
+    --hold:#5D6B7E; --hold-soft:#EDEFF2;
+  }
+
+  *{box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:var(--thai);
+       font-size:16px;line-height:1.65;-webkit-text-size-adjust:100%}
+  .wrap{max-width:44rem;margin:0 auto;padding:0 1.15rem 4rem}
+
+  /* ---------- masthead ---------- */
+  .mast{padding:1.6rem 0 1.1rem;border-bottom:2px solid var(--ink)}
+  .kicker{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+          color:var(--accent);display:flex;gap:.5rem;align-items:center}
+  .kicker::after{content:"";flex:1;height:1px;background:var(--line)}
+  h1{font-size:1.85rem;line-height:1.2;font-weight:800;letter-spacing:-.02em;
+     margin:.4rem 0 .3rem;text-wrap:balance}
+  .stamp{font-family:var(--mono);font-size:.78rem;color:var(--ink-3);
+         font-variant-numeric:tabular-nums}
+
+  /* ---------- sticky nav ---------- */
+  nav{position:sticky;top:0;z-index:20;background:var(--paper);
+      border-bottom:1px solid var(--line);margin:0 -1.15rem;padding:.55rem 1.15rem;
+      overflow-x:auto;-webkit-overflow-scrolling:touch}
+  nav ul{display:flex;gap:.4rem;list-style:none;margin:0;padding:0;white-space:nowrap}
+  nav a{display:block;font-size:.8rem;font-weight:600;text-decoration:none;
+        color:var(--ink-2);padding:.3rem .7rem;border:1px solid var(--line);border-radius:999px}
+  nav a:hover{border-color:var(--accent);color:var(--accent)}
+  nav a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  /* ---------- sections ---------- */
+  section{padding-top:2.1rem;scroll-margin-top:3.4rem}
+  h2{font-size:1.22rem;font-weight:800;letter-spacing:-.01em;margin:0 0 .2rem;
+     display:flex;align-items:baseline;gap:.5rem;flex-wrap:wrap}
+  .h2note{font-size:.78rem;font-weight:500;color:var(--ink-3);letter-spacing:0}
+  .rule{height:3px;background:var(--ink);width:2.2rem;margin:.45rem 0 1rem;border-radius:2px}
+
+  /* ---------- verdict ---------- */
+  .verdict{background:var(--card);border:1px solid var(--line);border-radius:14px;
+           padding:1.1rem 1.15rem;margin-top:1.2rem;display:flex;flex-direction:column;gap:.85rem}
+  .vrow{display:flex;gap:.75rem;align-items:flex-start}
+  .vnum{flex:none;width:1.5rem;height:1.5rem;border-radius:50%;background:var(--accent-soft);
+        color:var(--accent);font-family:var(--mono);font-size:.75rem;font-weight:700;
+        display:flex;align-items:center;justify-content:center;margin-top:.15rem}
+  .vrow p{margin:0;font-size:.95rem;line-height:1.6}
+
+  /* ---------- order tickets ---------- */
+  .tickets{display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
+  .tk{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--buy);
+      border-radius:10px;padding:.85rem 1rem;display:flex;flex-direction:column;gap:.5rem}
+  .tk.wait{border-left-color:var(--wait)}
+  .tk.stop{border-left-color:var(--avoid)}
+  .tkhead{display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap}
+  .tick{font-family:var(--mono);font-size:1.15rem;font-weight:700;letter-spacing:.01em}
+  .lots{font-size:.85rem;font-weight:700;color:var(--buy);background:var(--buy-soft);
+        padding:.1rem .5rem;border-radius:5px}
+  .tk.wait .lots{color:var(--wait);background:var(--wait-soft)}
+  .tk.stop .lots{color:var(--avoid);background:var(--avoid-soft)}
+  .px{margin-left:auto;font-family:var(--mono);font-size:.95rem;font-weight:600;
+      font-variant-numeric:tabular-nums}
+  .why{font-size:.88rem;color:var(--ink-2);margin:0;line-height:1.55}
+  .meta{display:flex;flex-wrap:wrap;gap:.35rem}
+  .chip{font-size:.7rem;font-weight:600;padding:.12rem .5rem;border-radius:4px;
+        background:var(--hold-soft);color:var(--ink-2);font-variant-numeric:tabular-nums}
+  .chip.ok{background:var(--buy-soft);color:var(--buy)}
+  .chip.warn{background:var(--wait-soft);color:var(--wait)}
+  .chip.bad{background:var(--avoid-soft);color:var(--avoid)}
+
+  .total{margin-top:.85rem;padding:.75rem .95rem;border:1px dashed var(--line);
+         border-radius:9px;font-size:.88rem;color:var(--ink-2);background:var(--accent-soft)}
+  .total b{color:var(--ink);font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+  /* ---------- data rows ---------- */
+  .rows{display:flex;flex-direction:column;gap:0;margin-top:.9rem;
+        border:1px solid var(--line);border-radius:11px;overflow:hidden;background:var(--card)}
+  .r{display:flex;gap:.7rem;align-items:baseline;padding:.7rem .9rem;
+     border-bottom:1px solid var(--line-2);font-size:.9rem;flex-wrap:wrap}
+  .r:last-child{border-bottom:0}
+  .r .lbl{font-weight:700;min-width:5.4rem;flex:none}
+  .r .val{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
+  .r .sub{color:var(--ink-3);font-size:.8rem;flex:1;min-width:100%}
+  @media(min-width:34rem){.r .sub{min-width:0;text-align:right}}
+  .dn{color:var(--avoid)} .up{color:var(--buy)}
+
+  /* ---------- avoid list ---------- */
+  .avoids{display:flex;flex-direction:column;gap:.5rem;margin-top:1rem}
+  .av{background:var(--avoid-soft);border-radius:9px;padding:.65rem .9rem;
+      display:flex;gap:.7rem;align-items:baseline;flex-wrap:wrap}
+  .av .t{font-family:var(--mono);font-weight:700;font-size:.95rem;color:var(--avoid)}
+  .av .d{font-family:var(--mono);font-size:.82rem;font-weight:600;
+         font-variant-numeric:tabular-nums;color:var(--avoid)}
+  .av .x{font-size:.85rem;color:var(--ink-2);flex:1;min-width:100%;line-height:1.5}
+  @media(min-width:34rem){.av .x{min-width:0}}
+
+  /* ---------- calendar ---------- */
+  .cal{margin-top:1rem;border-left:2px solid var(--line);padding-left:.95rem;
+       display:flex;flex-direction:column;gap:.9rem}
+  .day{position:relative}
+  .day::before{content:"";position:absolute;left:-1.28rem;top:.45rem;width:9px;height:9px;
+               border-radius:50%;background:var(--line);border:2px solid var(--paper)}
+  .day.hot::before{background:var(--avoid)}
+  .dlabel{font-family:var(--mono);font-size:.78rem;font-weight:700;color:var(--ink-3);
+          letter-spacing:.03em}
+  .day.hot .dlabel{color:var(--avoid)}
+  .dlist{font-size:.88rem;color:var(--ink-2);line-height:1.55;margin:.1rem 0 0}
+  .dlist b{color:var(--ink);font-family:var(--mono);font-size:.85rem}
+
+  /* ---------- misc ---------- */
+  .note{background:var(--card);border:1px solid var(--line);border-radius:11px;
+        padding:.9rem 1rem;margin-top:1rem;font-size:.89rem;color:var(--ink-2);line-height:1.6}
+  .note b{color:var(--ink)}
+  .flag{border-left:4px solid var(--wait);background:var(--wait-soft);border-radius:0 9px 9px 0;
+        padding:.75rem .95rem;margin-top:.9rem;font-size:.87rem;line-height:1.55;color:var(--ink-2)}
+  .flag b{color:var(--ink)}
+  .tagrow{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.85rem}
+  .tag{font-family:var(--mono);font-size:.78rem;font-weight:600;padding:.2rem .55rem;
+       border-radius:5px;background:var(--hold-soft);color:var(--ink-2)}
+  .tag.ok{background:var(--buy-soft);color:var(--buy)}
+  .tag.warn{background:var(--wait-soft);color:var(--wait)}
+  footer{margin-top:3rem;padding-top:1.2rem;border-top:2px solid var(--ink);
+         font-size:.85rem;color:var(--ink-3);display:flex;flex-direction:column;gap:.5rem}
+  .sign{font-size:.95rem;color:var(--ink-2);font-weight:600}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="kicker">🌙 Daily Summary · สรุปเมื่อคืน</div>
+  <h1>คืน hawkish hold — ชิปพังหนักสุดตั้งแต่ปี 2008</h1>
+  <div class="stamp">30 ก.ค. 2026 · 07:23 น. (เวลาไทย) · เซสชัน US 29 ก.ค. ปิดแล้ว · USDTHB 33.46 · 1 ไม้ ≈ 1,000฿ ≈ $29.9</div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#verdict">สรุป</a></li>
+    <li><a href="#market">ตลาด</a></li>
+    <li><a href="#news">ข่าวเมื่อคืน</a></li>
+    <li><a href="#gold">ทอง / BTC</a></li>
+    <li><a href="#buy">🟢 ช้อน</a></li>
+    <li><a href="#trim">🔻 Trim</a></li>
+    <li><a href="#hold">⏸️ Hold</a></li>
+    <li><a href="#avoid">🔴 Avoid</a></li>
+    <li><a href="#pending">⏰ Pending</a></li>
+    <li><a href="#port">💼 พอร์ต</a></li>
+  </ul>
+</nav>
+
+<section id="verdict">
+  <h2>สรุป 3 บรรทัด</h2>
+  <div class="rule"></div>
+  <div class="verdict">
+    <div class="vrow"><div class="vnum">1</div><p><b>Fed คงดอกเบี้ย 3.50–3.75% แต่โหวต 9-3 โดย 3 เสียงค้านขอ “ขึ้น”</b> (Hammack / Kashkari / Logan) · ประธานใหม่ Kevin Warsh → <b>30y ทะลุ 5.21% สูงสุดตั้งแต่ปี 2007</b> · Dow −2.19% (−1,153 จุด) แย่สุดตั้งแต่ เม.ย. 2025 · <b>SOX −18.9% ในเดือน ก.ค. = เดือนแย่สุดตั้งแต่ 2008</b></p></div>
+    <div class="vrow"><div class="vnum">2</div><p>พอร์ตเสีย <b class="dn">−1.2% ในคืนเดียว</b> → P/L หุ้นรวมเหลือ <b>+8.41%</b> (จาก +9.78% รอบบ่าย) — ถ่วง: META −8.6% · RKLB −8.0% · <b>ARM −13.4%</b> (หั่นไกด์ royalty) · NVDA −2.9% · TSM −4.4% · ช่วย: <b class="up">MSFT +8.1%</b> (Azure +43% ทะลุ $100B/ปี)</p></div>
+    <div class="vrow"><div class="vnum">3</div><p>ตารางช้อนคืนนี้ = ตัวที่ <b>งบผ่านแล้ว + วันนิ่งจริง + ต่ำกว่าเป้า</b> นำโดย <b>SNPS</b> (เงื่อนไขที่ค้างมา 10 วันครบเป๊ะคืนนี้) · <b>🔻 Trim = ไม่มีเลย</b> เพราะทุกตัวที่เกินเป้าเป็นวันแดง (ห้าม trim ตอนอ่อน) · ตัวที่ร่วง 8–16% (VRT · ARM · VPG · ONDS · NBIS · MU · SOFI · META) = <b>ห้ามรับมีดทุกตัว</b></p></div>
+  </div>
+</section>
+
+<section id="market">
+  <h2>Market Block <span class="h2note">ปิดเซสชัน 29 ก.ค. + after-hours</span></h2>
+  <div class="rule"></div>
+  <div class="rows">
+    <div class="r"><span class="lbl">🥇 ทองคำ</span><span class="val">$4,139.40</span><span class="val up">+2.55%</span><span class="sub">พุ่งจากดอลลาร์อ่อนหลัง Fed hold + safe-haven ตะวันออกกลาง</span></div>
+    <div class="r"><span class="lbl">→ บาททอง</span><span class="val">64,050 ฿</span><span class="val"></span><span class="sub"><b>ราคาสมาคมค้าทองฯ ปิด 29 ก.ค. (แท่ง 96.5% ขายออก)</b> · รับซื้อ 63,850 ฿ · เลขที่สแกนแปลง (~65,506) สูงเกินจริง — ยึดราคาสมาคม</span></div>
+    <div class="r"><span class="lbl">₿ BTC</span><span class="val">$63,936</span><span class="val up">+0.10%</span><span class="sub">≈ 2.14 ล้านบาท · ต่ำกว่า MA20 / EMA50 / EMA200 ทุกเส้น</span></div>
+    <div class="r"><span class="lbl">💵 USD/THB</span><span class="val">33.46</span><span class="val up">−0.27%</span><span class="sub">บาทแข็งกว่ากรอบที่ KResearch คาด (33.50–34.00) = ต้นทุนโอนไปซื้อหุ้น US ถูกลง</span></div>
+    <div class="r"><span class="lbl">📉 ตลาด US</span><span class="val dn">Dow −2.19%</span><span class="val">S&amp;P −1.52% · Nasdaq −1.74%</span><span class="sub">VIX 20.66 (+13.5%) · Industrials −3.42% · Tech −2.36% · เขียวเฉพาะ energy + defensive</span></div>
+  </div>
+</section>
+
+<section id="news">
+  <h2>ข่าวสำคัญเมื่อคืน <span class="h2note">10 เรื่องที่กระทบ decision</span></h2>
+  <div class="rule"></div>
+
+  <div class="note"><b>🏛️ FOMC hawkish hold — 3 เสียงค้านขอ “ขึ้น” ดอก</b><br>Warsh: “ห้าปีที่เงินเฟ้อเหนือเป้า รักษาให้หายใน 9 สัปดาห์ไม่ได้” · <b>JPMorgan เลื่อนคาดการณ์ขึ้นดอกจาก H2/2027 มาเป็น ธ.ค. 2026</b> → <b>นัย:</b> ตลาดพันธบัตรไม่เชื่อว่าเงินเฟ้อคุมได้ = discount rate กด multiple หุ้นเติบโตทั้งกระดาน · ข้อดี = พอร์ตปลอด Fed-binary ถึง 15–16 ก.ย.</div>
+
+  <div class="note"><b>💻 MSFT งบ FQ4 beat หนัก</b> (ถือ 3.19%)<br>rev ไตรมาส $90.0B +18% · <b>Azure +43%</b> เร็วสุดตั้งแต่ต้นปี 2022 ทะลุ $100B/ปีครั้งแรก · RPO $678B +84% · EPS GAAP $4.81 +32% · <b>capex ไตรมาสเดียว $35.8B (×2 เท่า YoY)</b> → +8.05% ใน AH (สื่อยืนยัน AH แรกแค่ +2.5–3% = เลขยัง fluid) → <b>นัย:</b> โต้ธีม “AI จบแล้ว” ในคืนเดียวกับที่ชิปพัง แต่ราคาเกินโซน = no-chase</div>
+
+  <div class="note"><b>📱 META EPS miss → −8.58% ลงชนขอบล่างโซนพอดี</b> (ถือ 4.05%)<br>rev $60.8B +28% beat แต่ <b>EPS $6.18 vs คาด $7.23 = miss 14%</b> เพราะค่าใช้จ่ายกฎหมาย $2.40B + severance $1.18B · capex ไตรมาส $30.1B → <b>FCF ไตรมาสเหลือ $784M</b> · guide Q3 $61–64B · FY26 capex $130–145B → <b>นัย:</b> ไม่ใช่ธุรกิจพัง แต่เป็นวันแรกของแรงขาย = ห้ามรับมีด (บทเรียน GOOGL 23 ก.ค.) · <b>FV เดิม $697 ใช้ไม่ได้แล้ว ต้องรัน DCF ใหม่</b></div>
+
+  <div class="note"><b>🔻 ชิปพังหนักสุดตั้งแต่ 2008 — 3 ชั้นทับกัน</b><br>① <b>CXMT IPO เซี่ยงไฮ้ 27 ก.ค. +466% วันแรก ระดม $8.6B</b> (DRAM อันดับ 4 โลก share 8% · มีรายงานว่า Apple กำลังทดสอบ DRAM ของ CXMT) ② <b>Reuters 28 ก.ค.: จีน mass-produce immersion DUV เอง</b> (~5 เครื่องปี 2026 / ~20 เครื่องปี 2027 vs <b>ASML ส่ง 131 เครื่องในปีเดียว</b>) ③ ธง “peak memory margin จบเร็วกว่าคาด” → MU −10.6% · SNDK −8.0% · ARM −13.4% · TSM −4.4% · DRAM ETF −6.2%</div>
+
+  <div class="note"><b>🏦 ตลาดเครดิตเริ่ม price ความเสี่ยง AI capex — ตัวจริงที่ทุบ neocloud</b><br><b>CDS ของ CoreWeave แตะ ~855bps = implied default 5 ปี ~50%</b> (28 ก.ค.) → NBIS −11.1% · IREN −11.8% · CRWV −8.5% (1 เดือน −36 ถึง −43%) · โยงกับ NVDA ค้ำ financing ~$250B ให้ data center OpenAI ที่ Ohio + <b>Burry ขยาย short NVDA และเปิด short MU</b> → <b>นัย:</b> คำอธิบายร่วมของทั้ง neocloud และการที่ META ถูกลงโทษเรื่อง capex+FCF ในคืนเดียวกัน</div>
+
+  <div class="note"><b>⚙️ ARM beat แต่หั่นไกด์ royalty</b> (ถือ 1.26%)<br>rev $1.289B +22% สถิติ · non-GAAP EPS $0.45 +29% beat · guide Q2 ~$1.38B เหนือ consensus <b>แต่หั่นไกด์ royalty growth ทั้งปีจาก ~20% → high teens และบอกตรงว่า royalty สมาร์ตโฟนจะลดลงไตรมาสหน้า</b> (ต้นทุน memory กดผู้ผลิตมือถือ) · ข่าวดีที่ถูกกลบ: royalty data center โตกว่า 2 เท่า YoY · ดีมานด์ AGI CPU &gt;$2B → <b>นัย:</b> catalyst ลบเชิงพื้นฐาน ไม่ใช่ de-rating ล้วน = คนละเคสกับ TSM/ASML</div>
+
+  <div class="note"><b>⚡ VRT rev miss → −15.8% แย่สุดใน 15+ เดือน</b><br>rev $3.27B +24% พลาดคาด $3.38B แต่ <b>adj EPS $1.52 beat + adj FCF ไตรมาส $925M (+234%) + ยกไกด์ FY26 ทุกเมตริก</b> (rev $13.8–14.2B · EPS $6.65–6.75) · บริษัทอ้าง supply-chain congestion ชั่วคราว → <b>นัย:</b> งบผ่านแล้ว + หลุดใต้ EMA200 = ไม่ extended แล้ว รอนิ่ง 2–3 วัน</div>
+
+  <div class="note"><b>🛩️ Drone ถูกทุบด้วย “ผลิตไม่ทัน” ไม่ใช่ “งบถูกตัด”</b><br>28 ก.ค. Reuters อ้าง DIU: สหรัฐจะได้ FPV drone <b>ไม่ถึง 200,000 ลำภายใน ก.พ. ขณะ Ukraine ผลิต 6–7 ล้านลำ/ปี</b> (คอขวด = กฎ sourcing ชิ้นส่วนในประเทศ) → ONDS −12.6% (+CEO ขายหุ้น $31.9M) · KTOS −9.8% · AVAV −8.9% · คำของบ FY2027 drone+counter-UAS &gt;$74B แต่ NDAA ยังไม่ผ่านสองสภา → <b>นัย:</b> เงินอาจมา แต่รายได้เข้าช้ากว่าที่ตลาดฝัน</div>
+
+  <div class="note"><b>💳 HOOD งบ beat หนัก แต่ crypto −38%</b> (ถือ 1.04%)<br>rev ไตรมาส $1.308B +32% · <b>EPS $0.62 vs คาด ~$0.45 = beat 38%</b> · funded customers +~1 ล้านในไตรมาส มากสุดใน 5 ปี · <b>event contracts $156M (โต &gt;10 เท่า) แซง crypto $100M แล้ว</b> · ไม่ให้ revenue guide → <b>นัย:</b> ทีสิสไม่พัง แต่โครงสร้างรายได้เปลี่ยนจาก crypto-beta เป็น prediction-market-beta</div>
+
+  <div class="flag"><b>🏥 2 ธงสุขภาพที่กระทบตัวใหญ่</b><br><b>Novo ฟ้อง Lilly</b> (21 ก.ค. ศาลกลาง NJ) เรื่องโฆษณา GLP-1 เทียบโดสไม่เป็นธรรม = overhang ลากทั้ง LLY (ถือ 3.53%) + NVO (2.05%) · <b>LLY orforglipron (Foundayo) scripts นิ่งที่ ~20,000/สัปดาห์ มาเดือนกว่า</b> = บรรทัดที่ต้องเช็กในงบ 5 ส.ค. · <b>FTC + ยูทาห์ + LA County ฟ้อง HIMS</b> (29 ก.ค.) โฆษณาหลอกลวง + แชร์ข้อมูลสุขภาพให้ Meta/Snap → −15%+ (เราไม่ถือ แต่เป็น precedent ของ telehealth ทั้งกลุ่ม)</div>
+</section>
+
+<section id="gold">
+  <h2>ทอง / BTC ช้อนตอนไหน</h2>
+  <div class="rule"></div>
+
+  <div class="rows">
+    <div class="r"><span class="lbl">① ไม้ละ $30</span><span class="val dn">🔴 ห้ามซื้อ</span><span class="sub">วันนี้ +2.55% เกินเกณฑ์ผันผวน (±1.2%) ไปเท่าตัว + <b>คืนนี้มี PCE + GDP</b> (กติกา: ทองซื้อ <b>หลัง</b> event) · โซนช้อน = ย่อแตะ MA20 <b>$4,074 ≈ ~64,471 ฿/บาททอง</b> · รับถัดไป $4,049 (EMA50) / $4,025 / $4,000 · ต้าน $4,172 → $4,185 → $4,246</span></div>
+    <div class="r"><span class="lbl">② เดือนละ 1 บาท</span><span class="val up">✅ ซื้อครบแล้ว</span><span class="sub">เดือน ก.ค. ซื้อไป 17 ก.ค. @ <b>64,400 ฿/บาททอง</b> (gold_log ยืนยัน) — ไม่ต้องเตือนซ้ำ · <b>ไม้ถัดไป ส.ค. 2026</b> เริ่มนับเกณฑ์ใหม่: วันนิ่ง |1D| ≤1.2% + ไม่แพงกว่า MA20 · ถ้าปลายเดือนยังไม่ได้ซื้อ = เอาวันนิ่งวันแรก อย่าดองข้ามเดือน</span></div>
+  </div>
+
+  <div class="tickets">
+    <div class="tk">
+      <div class="tkhead"><span class="tick">₿ BTC</span><span class="lots">1–2 ไม้</span><span class="px">$62,000–64,000</span></div>
+      <p class="why"><b>วันนิ่งเต็มตัว +0.10%</b> ✅ (เกณฑ์ ±4%) · ราคาอยู่ <b>ใต้เส้นทุกเส้น</b> (MA20 $64,447 · EMA50 $64,899 · EMA200 $73,221) = ไม่มีแนวต้านใต้ราคา · ตลาดจับตา support $62,000–63,000 · pivot $63,883</p>
+      <div class="meta"><span class="chip ok">ถือ 4.73% · เป้า 7% [5–10] ⬆</span><span class="chip warn">ช่องว่างใหญ่สุดในพอร์ต −2.3 จุด</span><span class="chip bad">ETF outflow 4 วันติด → ladder ไม้เล็ก</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="buy">
+  <h2>🟢 ช้อน <span class="h2note">ผ่านครบ 4 ด่าน: ในโซน + วันนิ่งจริง + งบผ่านแล้ว + ไม่เกินเป้า</span></h2>
+  <div class="rule"></div>
+  <div class="tickets">
+
+    <div class="tk">
+      <div class="tkhead"><span class="tick">1 · SNPS</span><span class="lots">1 ไม้</span><span class="px">$370–380</span></div>
+      <p class="why"><b>เงื่อนไขที่ค้างมา 10 วันครบเป๊ะคืนนี้</b> — 1D <b>−1.78%</b> ✅ (เกณฑ์ ≤2.5%) + ราคาอยู่ในกรอบ limit $375–382 ที่ตั้งไว้ · overhang Kimi K3 ปิดจบสมบูรณ์ (งบ CDNS beat + ยก guide + backlog สถิติ $8.1B + CEO ยืนยันเองว่าชิปที่ Kimi ทำเป็นบล็อกเล็กบนโนดอายุ 20 ปี และยังต้องใช้ EDA tool อยู่ดี) · <b>ลงน้อยกว่ากลุ่มชิปในวันที่ SOX −3%</b> · ใต้ EMA200 −17.8% = ไม่ extended</p>
+      <div class="meta"><span class="chip">ถือ 1.06% · เป้า 1.5 [1–2] ⬆</span><span class="chip ok">งบ 26 ส.ค. = ปลอด binary</span><span class="chip warn">MS downgrade OW→EW · insider ขาย $8.2M/3 ด.</span></div>
+    </div>
+
+    <div class="tk">
+      <div class="tkhead"><span class="tick">2 · NFLX</span><span class="lots">1–2 ไม้</span><span class="px">$70–73.5</span></div>
+      <p class="why"><b>ตัวเดียวใน Core ที่ทรง 5 วันกลับขึ้นแล้ว</b> — 1D <b>+1.04%</b> + ทรง5D ↗ พร้อมยังอยู่ใน BUY zone $68–75 · Core quality ที่ 52w low (−42.1%) · ใต้ EMA200 −18.3% = ไม่ extended · งบผ่านแล้ว 16 ก.ค.</p>
+      <div class="meta"><span class="chip">ถือ 2.36% · เป้า 2.5 [2–3]</span><span class="chip ok">ปลอด binary ถึง ต.ค.</span><span class="chip warn">Earth Evans base FV $54.47 · bull $75.30 = ราคาชนขอบ → ladder ไม้เล็ก</span></div>
+    </div>
+
+    <div class="tk">
+      <div class="tkhead"><span class="tick">3 · NVDA</span><span class="lots">1–2 ไม้</span><span class="px">$185–191</span></div>
+      <p class="why"><b>เงื่อนไข 3 ข้อที่ตั้งไว้ครบพอดี</b> — อยู่ใน BUY zone $185–195 ✅ + 1D −2.92% (≤3%) ✅ + <b>พ้น FOMC แล้ว</b> ✅ · vs EMA200 −0.1% = นั่งบนเส้นพอดี · <b>Earth Evans base FV $205.46 = ราคาต่ำกว่า base</b></p>
+      <div class="meta"><span class="chip">ถือ 5.67% · เป้า 6 [5–7]</span><span class="chip ok">งบ 26 ส.ค. ยืนยัน IR = ปลอด binary</span><span class="chip warn">ค้ำ financing OpenAI ~$250B + Burry short → ไม้ใหญ่เฉพาะหลุดถึง P25 $174</span></div>
+    </div>
+
+    <div class="tk">
+      <div class="tkhead"><span class="tick">4 · ISRG</span><span class="lots">1 ไม้</span><span class="px">$345–355</span></div>
+      <p class="why"><b>under-weight หนักสุดในกลุ่ม Core</b> · 1D −2.21% = วันนิ่ง ✅ · ใต้ EMA200 −22.6% / จาก 52wH −40.3% = Quality on Sale · จารเชถือ 2% ตามเป้าที่ประกาศไว้ (avg $351.18)</p>
+      <div class="meta"><span class="chip">ถือ 0.84% · เป้า 1.5 [1–2.5] ⬆</span><span class="chip ok">งบผ่าน 16 ก.ค. ปลอด binary ถึง ต.ค.</span><span class="chip warn">โซนใน zones.json ($395–415) stale + PT ถูกหั่น 3 สำนัก + insider ขายเท่านั้น → ladder ไม้เล็ก</span></div>
+    </div>
+
+    <div class="tk">
+      <div class="tkhead"><span class="tick">5 · ₿ BTC</span><span class="lots">1–2 ไม้</span><span class="px">$62,000–64,000</span></div>
+      <p class="why">ต่ำกว่า band มากสุดในพอร์ต + วันนิ่งเต็มตัว + ต่ำกว่าเส้นทุกเส้น (รายละเอียดในหัวข้อ ทอง / BTC)</p>
+      <div class="meta"><span class="chip ok">ถือ 4.73% · เป้า 7 [5–10] ⬆</span></div>
+    </div>
+
+    <div class="tk">
+      <div class="tkhead"><span class="tick">6 · UBER</span><span class="lots">1 ไม้ · Starter</span><span class="px">$68–71</span></div>
+      <p class="why">IN_BUY_ZONE $65–73 ✅ + 1D +0.51% นิ่ง ✅ + under-weight · ใต้ EMA200 −7.4%</p>
+      <div class="meta"><span class="chip">ถือ 0.60% · เป้า 1 [0.5–1.5] ⬆</span><span class="chip bad">งบ 5 ส.ค. BMO (implied move ±8.3%) = binary gate → Starter ไม้เดียวเท่านั้น</span></div>
+    </div>
+
+  </div>
+  <div class="total">รวม <b>7–9 ไม้ ≈ 7,000–9,000 ฿</b> · เงินสดในพอร์ต <b>7.1%</b> (CashFlex ตรงเป้า 7%) = เหลือกระสุนสบาย ๆ สำหรับสัปดาห์งบ 3–7 ส.ค.</div>
+
+  <h2 style="margin-top:1.8rem">🕐 เกือบพร้อม <span class="h2note">ขาดอีกข้อเดียว — ตั้ง alert ไว้</span></h2>
+  <div class="rule"></div>
+  <div class="tickets">
+    <div class="tk wait">
+      <div class="tkhead"><span class="tick">ASML</span><span class="lots">รอทรงหยุด ↘</span><span class="px">$1,550–1,600</span></div>
+      <p class="why"><b>1D −1.01% ผ่านเกณฑ์นิ่งแล้ว</b> และเป็น<b>วันที่ 3 ที่แรงขายอ่อนลงชัด</b> (−6.6% → −6.15% → −1.01%) + ยังไม่มีสำนักไหน downgrade (BofA ตีผลกระทบข่าว DUV จีนแค่ ~€1.4B = 2.4% ของยอด · สัดส่วนรายได้จีนหดจาก ~33% → ~16% ไปก่อนข่าวแล้ว) → <b>ถ้าคืนนี้ไม่ร่วงต่อ = ช้อน 1 ไม้ได้ทันที</b></p>
+      <div class="meta"><span class="chip">ถือ 2.41% · เป้า 3 [2.5–3.5] ⬆</span><span class="chip warn">Earth Evans base FV $801 = ราคาเหนือ bull FV → ไม้เล็กเท่านั้น</span></div>
+    </div>
+    <div class="tk wait">
+      <div class="tkhead"><span class="tick">META</span><span class="lots">รอวันนิ่ง ≤3%</span><span class="px">$540–570</span></div>
+      <p class="why">IN_BUY_ZONE $540–570 พอดี + งบผ่านแล้ว + ใต้ EMA200 −13.9% = ไม่ extended <b>แต่ −8.58% = วันแรกของแรงขาย ห้ามรับมีด</b></p>
+      <div class="meta"><span class="chip">ถือ 4.05% · เป้า 4.5 [4–5.5] ⬆</span></div>
+    </div>
+    <div class="tk wait">
+      <div class="tkhead"><span class="tick">HOOD</span><span class="lots">รอกลับเข้าโซน</span><span class="px">$90–100</span></div>
+      <p class="why">งบผ่านแล้ว <b>beat 38%</b> แต่ราคา AH $88.93 หลุดใต้ขอบล่างโซน + 1D −4.13% เกินเกณฑ์ 3%</p>
+      <div class="meta"><span class="chip">ถือ 1.04% · เป้า 1 [0.75–1.5]</span></div>
+    </div>
+    <div class="tk wait">
+      <div class="tkhead"><span class="tick">AVAV · TSM · SOFI</span><span class="lots">รอนิ่ง</span><span class="px">—</span></div>
+      <p class="why"><b>AVAV</b> ในโซน $140–155 + งบไกลสุด 9 ก.ย. แต่ −8.93% · <b>TSM</b> −4.44% + BELOW_ZONE ($400–430) · <b>SOFI</b> 🔧 แก้ธง: ยกไกด์แค่ “รายได้” ($4.75–4.85B) ส่วน EBITDA ~$1.6B / EPS ~$0.60 <b>คงเดิมทั้งหมด</b> = แกนของ selloff ไม่ใช่ sell-the-news ล้วน → รอโซน $16.5–18</p>
+    </div>
+  </div>
+</section>
+
+<section id="trim">
+  <h2>🔻 Trim <span class="h2note">ไม่มีเลยคืนนี้ — ห้าม trim ตอนอ่อน</span></h2>
+  <div class="rule"></div>
+  <div class="note">กติกาเหล็ก: trim ได้เฉพาะ <b>ชนเพดาน sleeve + ทรง ↗</b> · คืนนี้ทุกตัวที่เกินเป้าเป็นวันแดงหมด → ยกไปรอวันเขียวแรง</div>
+  <div class="rows">
+    <div class="r"><span class="lbl">LLY</span><span class="val">3.53% / เป้า 3 ⬇</span><span class="sub">1D −1.05% · ABOVE_ZONE · งบ 5 ส.ค. · thesis ยังแข็ง → รอเขียว ไม่เร่ง</span></div>
+    <div class="r"><span class="lbl">NVO</span><span class="val dn">2.05% / เป้า 1 ⬇ เกิน 2 เท่า</span><span class="sub">P/L −42.8% + งบ 5 ส.ค. + คดีฟ้อง LLY → <b>ห้าม trim ตอนขาดทุนหนัก</b> รอเด้งแรง</span></div>
+    <div class="r"><span class="lbl">CAT</span><span class="val">1.04% / เป้า 0.5 ⬇</span><span class="sub">P/L +165.1% · งบ 4 ส.ค. BMO (tariff Q2 ~$700M) → trim 1 ไม้ตอนเขียวหลังงบ</span></div>
+    <div class="r"><span class="lbl">IREN</span><span class="val dn">0.36% / เป้า 0 (EXIT)</span><span class="sub">1D −11.82% → <b>ห้ามขายตอนอ่อน</b> ขายเฉพาะวันเขียวแรง เป้าถือ 0%</span></div>
+    <div class="r"><span class="lbl">tail 2.0%</span><span class="val">เป้า 0 🔄</span><span class="sub">NKE/CMCSA/UPS/ADBE/ACN/BMBL/PRCT ฯลฯ — โยกออกตาม Fresh-Cash ตอนเด้ง ไม่ fire-sale · <b>UPS ยกไกด์ FY26 ทั้งชุด = หน้าต่างขายที่ดี</b></span></div>
+  </div>
+</section>
+
+<section id="hold">
+  <h2>⏸️ Hold <span class="h2note">ติด binary หรือรอเงื่อนไข</span></h2>
+  <div class="rule"></div>
+
+  <div class="cal">
+    <div class="day hot">
+      <div class="dlabel">คืนนี้ · 30 ก.ค. — PCE + GDP 19:30 ไทย</div>
+      <p class="dlist">งบ AMC: <b>AMZN</b> 4.23% · <b>AAPL</b> 1.39% · <b>TEM</b> 1.40% · <b>RBLX</b> 0.58% · BMO: <b>MA</b> 1.71% · REGN · RACE · MNST → <b>~9.3% ของพอร์ตอยู่ในหน้าต่างงบคืนเดียว = ห้าม deploy ใหญ่</b><br>AMZN อยู่ใน BUY zone $225–240 พอดีและวันนิ่ง (−0.34%) <b>แต่ binary กั้น</b> — ถ้าไม่พังทีสิส + ยังในโซน = ช้อนได้พรุ่งนี้ · TEM มี 2 ธงทับ (ดีล Personalis $1.5B all-stock = dilution จริง + consensus PT ลด $72.40 → $67.20) · AAPL = earnings call สุดท้ายของ Tim Cook</p>
+    </div>
+    <div class="day">
+      <div class="dlabel">31 ก.ค. – 4 ส.ค.</div>
+      <p class="dlist"><b>ABBV</b> 31 ก.ค. + <b>ภาษี 100% ยาสิทธิบัตรเริ่มบังคับบางราย</b> (LLY/NVO/ABBV มีดีล MFN ยกเว้น 3 ปี) · <b>PLTR</b> 3 ส.ค. (ABOVE_ZONE → Starter-only) · <b>CAT · TMDX · PRCT · KTOS · SPCX · ALAB · BKNG</b> 4 ส.ค.</p>
+    </div>
+    <div class="day hot">
+      <div class="dlabel">5 ส.ค. — วันกระจุกที่สุด (~10% ของพอร์ต)</div>
+      <p class="dlist"><b>AXON · EOSE · LLY · NVO · MELI · UBER · SITM · SNDK · VPG</b></p>
+    </div>
+    <div class="day">
+      <div class="dlabel">6–13 ส.ค.</div>
+      <p class="dlist"><b>CEG · MP · OUST · ZTS</b> 6 ส.ค. · <b>OKLO</b> 7 ส.ค. BMO + <b>Jobs report ก.ค.</b> (คาด NFP ~+90k · ฐาน มิ.ย. พลาดหนัก +57k vs คาด 110k) · <b>RKLB · ASTS</b> 10 ส.ค. · <b>CRWV · LITE · AMBQ</b> 11 ส.ค. · <b>COHR · NBIS</b> 12 ส.ค. · <b>CPI</b> 12 ส.ค. · FOMC ครั้งถัดไป 15–16 ก.ย.</p>
+    </div>
+  </div>
+
+  <div class="flag"><b>🔧 แก้ข้อมูล AXON — ธงเดิมคลาดเวลา</b> (ถือ 0.97% vs เป้า 1.2)<br>คดี HQ Scottsdale $1.3B ไต่สวนจริง <b>11 เม.ย.</b> และ <b>15 พ.ค. ศาลตัดสินว่า “Axon bill” ชอบด้วยรัฐธรรมนูญ = Axon ชนะรอบแรก</b> (campus ยัง on hold · ฝ่ายค้านอุทธรณ์) — ไม่ใช่ “เพิ่งเข้าไต่สวน” · PT ที่ถูกหั่นก็ยังคง Buy ทั้งคู่ (BofA $805→700 · RBC $735) และมีสวนทาง Needham $600→750 · consensus ~$725 สูงกว่าราคา $532 มาก → <b>ธงลบอ่อนกว่าที่บันทึกไว้ แต่ insider ขาย $33.4M/3 เดือนไม่มีซื้อ + งบ 5 ส.ค. ยังบังคับให้รอ</b></div>
+
+  <div class="note"><b>MSFT</b> 3.19% — งบดีมาก แต่ ABOVE_ZONE ($355–385) + วันเขียวแรง = <b>no-chase gate เต็มตัว</b> · ธงใหม่: UK CMA เปิดสอบ strategic market status ต่อ Windows/Office/Teams/Copilot + cloud/AI<br><br><b>GOOGL</b> 4.72% — ตรงเป้า 4.5 แล้ว · โซนเติมจริง $305–320 (แถว EMA200 ~$319) ห่างอีก ~5%<br><br><b>HCA</b> (ไม่ถือ) — <b>no-chase</b>: $409.02 vs โซน $360–390 = เกิน +7.6% · Earth Evans base FV $472 (MoS +19%) ยังบอกว่าถูก + ปลอด binary ถึงปลาย ต.ค. → <b>ตั้ง limit รอย่อ $360–390</b> · ⚠️ MS หั่น PT เหลือ $380 = ต่ำกว่าราคาปัจจุบัน + วุฒิสภายังไม่โหวตต่ออายุ ACA subsidy<br><br><b>RKLB</b> 2.90% — 🚫 <b>BLOCKED buy</b> · ได้สัญญาใหญ่สุดในประวัติบริษัท $266M กับ Space Force (12 suborbital launches, Kodiak AK) แต่ตลาดไม่รับ · งบ 10 ส.ค. · −7.95% = ห้าม trim ด้วย → นั่งเฉยถือกำไร +172%<br><br><b>UNH</b> 1.48% · <b>ELV</b> 0.94% — งบผ่าน + ยกไกด์ทั้งคู่ = ปลอด binary ถึง ต.ค. · แต่คุณภาพต่างกัน: UNH พึ่ง prior-period reserve release $860M ในไตรมาส · ELV op margin หด 4.9% → 3.5% · <b>ทั้งคู่ยังไม่มี zone ในระบบ</b> (NVO/ABBV/REGN ก็ยังไม่มี) → สั่งเพิ่มเข้า watchlist ได้ครับ</div>
+</section>
+
+<section id="avoid">
+  <h2>🔴 Avoid <span class="h2note">มีดตก / ข่าวร้ายค้าง</span></h2>
+  <div class="rule"></div>
+  <div class="avoids">
+    <div class="av"><span class="t">MU</span><span class="d">−10.55%</span><span class="x"><b>ปิดคำถามเฮีย Hamid ได้แล้ว: Earth Evans base FV $661.59 vs ราคา $734 = ราคาเหนือ base FV ~11%</b> (bull FV $1,438) → ยังไม่ใช่ “undervalue” บนฐาน base case = ไม่มีเหตุตามช้อนตอนนี้ · +24.8% เหนือ EMA200 = extended สุดในพอร์ต · CEO ขายหุ้น ~$37.3M · Burry เปิด short · ⚖️ ฝั่งค้าน: MS “compelling entry point” · KeyBanc คง PT $1,750 → ถ้าจะเอาจริง = รอนิ่ง + ไม้จิ๋ว</span></div>
+    <div class="av"><span class="t">VRT</span><span class="d">−16.28%</span><span class="x">revenue miss $3.27B vs $3.38B · worst single-day ใน 15+ เดือน · แต่งบผ่านแล้ว + หลุดใต้ EMA200 −11.3% = ไม่ extended → รอนิ่ง 2–3 วันค่อยไม้จิ๋ว (ถือ 0.03%)</span></div>
+    <div class="av"><span class="t">ARM</span><span class="d">−13.41%</span><span class="x">หั่นไกด์ royalty = catalyst ลบเชิงพื้นฐาน + คลื่นหั่น PT จะออกคืนนี้ → ยังไม่แตะ (ถือ 1.26%)</span></div>
+    <div class="av"><span class="t">EOSE</span><span class="d">−5.74%</span><span class="x">ธงลบใหม่ 3 ชั้น: 2 สำนักกฎหมายเปิดสอบสวน officers/directors · CAO ขายหุ้น 28 ก.ค. · แตะ 52w low · <b>เงิน Cerberus $100M เข้า JV Frontier Power USA ไม่ใช่งบดุล EOSE</b> และ closing ยังไม่เกิด · gross margin ยัง −69 ถึง −73% → ไม่ช้อนก่อนงบ 5 ส.ค.</span></div>
+    <div class="av"><span class="t">OKLO</span><span class="d">−6.29%</span><span class="x"><b>ยังไม่มี criticality จริงทั้ง Groves TX และ Aurora-INL</b> (เดดไลน์ตัวเองภายใน ก.ค. เหลือ 1–2 วัน · Aurora พลาดเดดไลน์ EO 4 ก.ค. ไปแล้ว) · Groves ได้แค่ startup authorization 23 ก.ค. · แตะ 52w low intraday $39.48 · insider net sell ~$54M/12 เดือน · งบ 7 ส.ค. = event 2 ชั้น</span></div>
+    <div class="av"><span class="t">NBIS</span><span class="d">−11.11%</span><span class="x">เหตุคือ credit/funding (CDS) ไม่ใช่ operational · งบ 12 ส.ค. BMO ยืนยันแล้ว · โซนจารเชเองคือ $130–140 ห่างอีก ~15%</span></div>
+    <div class="av"><span class="t">ASTS</span><span class="d">−5.57%</span><span class="x"><b>Pomerantz เปิดสอบสวน securities fraud (28 ก.ค.)</b> + 🔧 แก้ข้อมูล: <b>BlueBird 7 สูญเสียจริง จะ de-orbit ไม่ใช่แค่เลื่อน</b> · New Glenn ยังถูกพักหลัง ground-test anomaly → commercial D2D เลื่อนเป็นต้นปี 2027 · ราคาหลุดใต้ $59 = สถานะพิเศษไม่ผ่าน · งบ 10 ส.ค.</span></div>
+    <div class="av"><span class="t">ONDS</span><span class="d">−12.60%</span><span class="x">DIU production gap + <b>CEO ขายหุ้น $31.9M</b> + prospectus จด resale 3.378M หุ้น = supply overhang ที่ยังไม่จบ</span></div>
+    <div class="av"><span class="t">KTOS · AVAV</span><span class="d">−9.79 / −8.93%</span><span class="x">ไหลตามกลุ่มจากข่าว DIU — ทั้งคู่ไม่มีข่าวร้ายเฉพาะตัว (KTOS เพิ่งสร้างโรงงาน hypersonic $50M เสร็จก่อนกำหนด) · KTOS ติดงบ 4 ส.ค. · <b>AVAV ปลอด binary ยาวถึง 9 ก.ย. = ตัวที่ดีสุดในกลุ่มเมื่อมีดหยุด</b></span></div>
+    <div class="av"><span class="t">SPCX</span><span class="d">−2.83%</span><span class="x">ธงใหม่: งบแรกในฐานะบริษัทมหาชน 4 ส.ค. + <b>lockup tranche แรก 20% ปลด 6 ส.ค.</b> แล้วปลดต่อ 7% ทุก 2–4 สัปดาห์ถึง ต.ค. · ราคาทำ all-time low ตั้งแต่ IPO 12 มิ.ย. ($135 → $113)</span></div>
+    <div class="av"><span class="t">OUST</span><span class="d">−7.09%</span><span class="x"><b>ราคา $31.51 ต่ำกว่าราคาที่บริษัทเพิ่งขายหุ้นใหม่เดือนนี้ ($55.22) ถึง 43%</b> · งบ 6 ส.ค. AMC · vs EMA200 เหลือ +3.8% (ค่าใน zones.json stale)</span></div>
+    <div class="av"><span class="t">COHR</span><span class="d">−8.81%</span><span class="x">ธงแดงงบ FQ3 ยังอยู่ (FCF ไตรมาส −$383.5M · inventory +48% · diluted shares +26.5% YoY) → รอหลังงบ 12 ส.ค. (FQ4 + FY26 + guide FY27 ครั้งแรก = binary หนัก)</span></div>
+    <div class="av"><span class="t">MP · CRML · VPG · IONQ · DRAM</span><span class="d">−4.7 ถึง −11.8%</span><span class="x">มีดตกทั้งแผง · MP งบ 6 ส.ค. + JPM หั่น PT $75→60 · CRML −41%/เดือน + dilution overhang · VPG กลับหัวจาก high ของวัน −13.6% + งบ 5 ส.ค. · DRAM/IONQ ไหลตามกลุ่ม</span></div>
+    <div class="av"><span class="t">PRCT</span><span class="d">งบ 4 ส.ค.</span><span class="x">guide ถูกหั่น + <b>excess field inventory &gt;10,000 ชิ้น</b> (ขาย handpiece เกินจำนวน procedure ทุกไตรมาสตั้งแต่ Q1 2023) + class action ยื่น 24 ก.ค. · P/L −66.3% เป้า 0 🔄</span></div>
+  </div>
+</section>
+
+<section id="pending">
+  <h2>⏰ Pending <span class="h2note">เงื่อนไขที่ตั้งรอไว้ (อัพเดตรอบนี้)</span></h2>
+  <div class="rule"></div>
+  <div class="rows">
+    <div class="r"><span class="lbl">🆕 META</span><span class="val"></span><span class="sub">วันนิ่ง 1D≤3% + ยังอยู่ในโซน $540–570 (งบผ่านแล้ว = ปลอด binary ถึง ต.ค.)</span></div>
+    <div class="r"><span class="lbl">✅ SNPS</span><span class="val up">เงื่อนไขครบ</span><span class="sub">อยู่ในตารางช้อนอันดับ 1 แล้ว — limit $370–380</span></div>
+    <div class="r"><span class="lbl">✅ NVDA</span><span class="val up">เงื่อนไขครบ</span><span class="sub">เข้าโซน + วันนิ่ง + พ้น FOMC — limit $185–191</span></div>
+    <div class="r"><span class="lbl">ASML</span><span class="val"></span><span class="sub">ขาดข้อเดียว: ทรง5D หยุด ↘ (1D ผ่านแล้ว)</span></div>
+    <div class="r"><span class="lbl">HOOD</span><span class="val"></span><span class="sub">กลับเข้าโซน $90–100 + วันนิ่ง 1D≤3% (งบ beat ผ่านแล้ว)</span></div>
+    <div class="r"><span class="lbl">SOFI</span><span class="val"></span><span class="sub">วันนิ่ง 1D≤3% + กลับเข้าโซน $16.5–18</span></div>
+    <div class="r"><span class="lbl">AVAV</span><span class="val"></span><span class="sub">วันนิ่ง 1D≤3% + อยู่ในโซน $140–155 (ปลอด binary ถึง 9 ก.ย.)</span></div>
+    <div class="r"><span class="lbl">VRT</span><span class="val"></span><span class="sub">นิ่ง 2–3 วันหลัง revenue miss แล้วค่อยไม้จิ๋ว</span></div>
+    <div class="r"><span class="lbl">AXON</span><span class="val"></span><span class="sub">รอหลังงบ 5 ส.ค. + วันนิ่ง + โซน $520–560</span></div>
+    <div class="r"><span class="lbl">HCA</span><span class="val"></span><span class="sub">ย่อกลับ $360–390 (ตอนนี้เกินโซน +7.6%)</span></div>
+    <div class="r"><span class="lbl">รอต่อ</span><span class="val"></span><span class="sub">TSM · MP · OKLO · DRAM · CRML · VPG · OUST · ASTS · IONQ · GOOGL · REMX · SPCX · NBIS · XAUUSD ไม้$30 — เงื่อนไขเดิม</span></div>
+    <div class="r"><span class="lbl">รอตามวัน</span><span class="val"></span><span class="sub">EOSE → 5 ส.ค. · COHR → 12 ส.ค.</span></div>
+  </div>
+</section>
+
+<section id="port">
+  <h2>💼 พอร์ต <span class="h2note">%พอร์ต realtime — ไม่แสดงยอดเงิน</span></h2>
+  <div class="rule"></div>
+
+  <div class="rows">
+    <div class="r"><span class="lbl">P/L หุ้นรวม</span><span class="val up">+8.41%</span><span class="val dn">คืนนี้ −1.2%</span><span class="sub">จาก +9.78% รอบบ่ายวานนี้</span></div>
+    <div class="r"><span class="lbl">เงินสด</span><span class="val">7.1% ของพอร์ต</span><span class="val"></span><span class="sub">CashFlex ตรงเป้า 7% = พอสำหรับ 7–9 ไม้ในตารางช้อนสบาย ๆ</span></div>
+  </div>
+
+  <div class="tagrow">
+    <span class="tag ok">Core 58.5% / 57.5%</span>
+    <span class="tag ok">Sat 26.3% / 26%</span>
+    <span class="tag warn">Hedge 1.5% / 2.5% ⬆</span>
+    <span class="tag warn">Crypto 4.7% / 7% ⬆</span>
+    <span class="tag ok">CashFlex 7.1% / 7%</span>
+    <span class="tag">tail 2.0% / 0% 🔄</span>
+  </div>
+
+  <h2 style="margin-top:1.8rem">ตัวขยับแรงเมื่อคืน <span class="h2note">ผลต่อพอร์ตเป็นจุด (pp)</span></h2>
+  <div class="rule"></div>
+  <div class="rows">
+    <div class="r"><span class="lbl">🟢 MSFT</span><span class="val up">+8.05%</span><span class="val up">+0.26 pp</span><span class="sub">ถือ 3.19% · งบ FQ4 beat · Azure +43%</span></div>
+    <div class="r"><span class="lbl">🟢 TMDX</span><span class="val up">+2.90%</span><span class="val up">+0.05 pp</span><span class="sub">ถือ 1.60% · สวนตลาด ไม่พบข่าวเฉพาะ (ก่อนงบ 4 ส.ค.)</span></div>
+    <div class="r"><span class="lbl">🟢 RBRK</span><span class="val up">+2.31%</span><span class="val up">+0.04 pp</span><span class="sub">ถือ 1.89%</span></div>
+    <div class="r"><span class="lbl">🔴 META</span><span class="val dn">−8.58%</span><span class="val dn">−0.35 pp</span><span class="sub">ถือ 4.05% · EPS miss จาก legal + severance</span></div>
+    <div class="r"><span class="lbl">🔴 RKLB</span><span class="val dn">−7.95%</span><span class="val dn">−0.23 pp</span><span class="sub">ถือ 2.90% · space selloff (ไม่รับข่าวสัญญา $266M)</span></div>
+    <div class="r"><span class="lbl">🔴 ARM</span><span class="val dn">−13.41%</span><span class="val dn">−0.17 pp</span><span class="sub">ถือ 1.26% · หั่นไกด์ royalty</span></div>
+    <div class="r"><span class="lbl">🔴 NVDA</span><span class="val dn">−2.92%</span><span class="val dn">−0.17 pp</span><span class="sub">ถือ 5.67% · ไหลตามชิป (ลงน้อยกว่ากลุ่ม)</span></div>
+    <div class="r"><span class="lbl">🔴 TSM</span><span class="val dn">−4.44%</span><span class="val dn">−0.13 pp</span><span class="sub">ถือ 2.89% · ข่าว DUV จีนวันที่ 3</span></div>
+    <div class="r"><span class="lbl">🔴 ONDS</span><span class="val dn">−12.60%</span><span class="val dn">−0.10 pp</span><span class="sub">ถือ 0.80% · DIU drone production gap + CEO ขายหุ้น</span></div>
+    <div class="r"><span class="lbl">🔴 AVAV</span><span class="val dn">−8.93%</span><span class="val dn">−0.08 pp</span><span class="sub">ถือ 0.93%</span></div>
+    <div class="r"><span class="lbl">🔴 SOFI</span><span class="val dn">−8.60%</span><span class="val dn">−0.07 pp</span><span class="sub">ถือ 0.76% · profit guide ไม่ยก</span></div>
+    <div class="r"><span class="lbl">🔴 NBIS · ASTS · KTOS</span><span class="val dn">−11.1 / −5.6 / −9.8%</span><span class="val dn">−0.06 / −0.06 / −0.05 pp</span><span class="sub">ถือ 0.53 / 1.07 / 0.53%</span></div>
+    <div class="r"><span class="lbl">🔴 IREN · MU</span><span class="val dn">−11.8 / −10.6%</span><span class="val dn">−0.04 / −0.04 pp</span><span class="sub">ถือ 0.36 / 0.42%</span></div>
+  </div>
+
+  <div class="note"><b>ช่องว่างใหญ่สุด = Crypto (BTC) ต่ำกว่าเป้า 2.3 จุด</b> → เป็นเหตุผลที่ BTC อยู่ในตารางช้อนคืนนี้ · รองลงมา <b>Hedge ต่ำกว่าเป้า 1 จุด</b> แต่ตัวในกลุ่ม (MP/CRML/REMX/SLV) แดงหรือพุ่งแรงทั้งหมด = ไม่มีตัวไหนผ่านเกณฑ์</div>
+
+  <div class="flag"><b>ข้อจำกัดข้อมูลรอบนี้ (แจ้งตรง)</b><br>① เลขทองในสแกนสูงกว่า settle จริง — <b>ยึดราคาสมาคม 64,050฿</b> ② ราคา after-hours ของ MSFT/HOOD ต่างจากที่สื่อยืนยัน = ยัง fluid ตอนเปิดตลาดจริง ③ guide capex FY27 ของ MSFT ยังไม่มีเอกสารยืนยัน (ให้ในคอลเท่านั้น) — ไม่นำมาใช้ตัดสิน ④ ทรง 5 วัน ↗ ของ KTOS/AVAV/ONDS/AXON น่าจะ lag = ห้ามใช้เป็นหลักฐาน “ทรงกลับ” ⑤ วันงบ AAPL/ABBV ยืนยันได้จาก aggregator เท่านั้น ไม่ใช่ PR บริษัท</div>
+</section>
+
+<footer>
+  <div>ENDROSSI Algorithm · รอบ Daily Summary 30 ก.ค. 2026 · ราคา yfinance delay ~15 นาที (⚡ ราคาสด 1m รวม pre/post market) · แสดง %พอร์ตเท่านั้น ไม่แสดงยอดเงิน</div>
+  <div>เอกสารนี้เป็นเครื่องมือช่วยคิด ไม่ใช่คำแนะนำการลงทุน</div>
+  <div class="sign">เครื่องมือช่วยคิด decision สุดท้ายของนายท่านครับ</div>
+</footer>
+
+</div>
+
+</body>
+</html>
