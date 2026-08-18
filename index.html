@@ -612,6 +612,75 @@ td.r{text-align:right;white-space:nowrap}
   </div>
 </section>
 
+<section>
+  <h2>📐 Earth Evans Update <span class="tag">18 ส.ค. · coverage 30 ตัว</span></h2>
+  <p class="thesis"><b>valuation เป็น overlay ไม่ใช่ trigger</b> · อ่าน DCF เป็น <b>Range ไม่ใช่จุด</b> · ราคาที่ใช้ = ปิดจริงศุกร์ 14 ส.ค. (แท่ง 17 ส.ค. ยังไม่ครบใน yfinance)</p>
+
+  <div class="card info">
+    <h3>1) เช็คงบใหม่ — ❌ ไม่มีตัวไหนต้องอัพเดท (0 delta FV)</h3>
+    <p>ไล่ครบทั้ง 28 ticker เดิม เทียบ <b>วันงบจริง vs as_of ในไฟล์</b> → ไม่มีตัวไหนออกงบใหม่กว่า as_of · ที่เช็คหนักเป็นพิเศษเพราะปีบัญชีเหลื่อม: <b>NVDA งบ 26 ส.ค.</b> · <b>CRWD 26 ส.ค.</b> · <b>PANW 1 ก.ย.</b> (ไม่ใช่ 17/24 ส.ค. ที่บางเว็บลง) · <b>AVGO 2 ก.ย.</b> · MU ปลาย ก.ย.<br>
+    ส่วน <b>HOOD และ ARM งบออก 29 ก.ค.</b> ซึ่ง as_of 30 ก.ค. ครอบไปแล้ว (HOOD rev $1.31B +32% · ARM rev $1.29B +22%)</p>
+    <p>⚠️ <b>รอบหน้า 29 ส.ค. จะเป็นรอบหนัก</b> — 26 ส.ค. NVDA+CRWD+SNPS และ 27 ส.ค. RBRK ออกงบพร้อมกัน = ต้องรีเฟรช 4 ตัวรวดเดียว</p>
+  </div>
+
+  <div class="card info">
+    <h3>2) ขยาย coverage 2 ตัว — เลือกจาก %พอร์ตมากสุดที่ยังไม่มี valuation</h3>
+    <p><b>✅ ทำรอบนี้: TMDX (1.59%) · AVAV (1.15%)</b><br>
+    <b>⏭️ ข้าม RKLB (3.45%)</b> ทั้งที่ใหญ่สุด เพราะ <b>FCFF DCF ใช้ไม่ได้</b> — Neutron ยังไม่บิน มูลค่า 73–82% อยู่ที่ของที่ยังไม่มีรายได้ → ใช้ Quarterly deep-dive + reverse DCF แทน (ทำแล้ว 6 ส.ค.)<br>
+    <b>⏭️ ข้าม TEM (1.58%)</b> ยังขาดทุน FCF ติดลบ · <b>⏭️ ข้าม ASTS (1.33%)</b> pre-revenue</p>
+  </div>
+
+  <div class="picks">
+
+    <article class="pick hold">
+      <div class="ph"><span class="tk">TMDX</span><span class="sz">#29 ใหม่</span><span class="sp">TransMedics · ถือ 1.59% (เป้า 1.25) · P/L −11.7%</span></div>
+      <div class="pf">
+        <div><span class="k">Base FV</span><span class="v num">$68.20</span></div>
+        <div><span class="k">Bull FV</span><span class="v num">$134.58</span></div>
+        <div><span class="k">MC P50 / P90</span><span class="v num">$65.26 / $105.80</span></div>
+        <div><span class="k">ราคา 14 ส.ค.</span><span class="v num">$88.58</span></div>
+        <div><span class="k">MoS vs Base</span><span class="v num down">−29.9%</span></div>
+        <div><span class="k">ตำแหน่ง Base→Bull</span><span class="v num">30.7%</span></div>
+      </div>
+      <div class="body">
+        <p class="why"><b>ราคาอยู่ใต้ P90 = ยังอยู่ในกระจาย</b> (88.58 vs 105.80) · percentile 79 → ยังมีทาง <b>21%</b> ที่ FV สูงกว่าราคา — ต่างจากเคส AXON ที่ราคาหลุดกรอบไปเลย · <b>Reverse DCF:</b> ที่ $88.58 ตลาดเรียกร้อง margin ปลายทาง <b>29.8%</b> (ของจริง FY2025 = 17.9% · ไตรมาสดีสุดในประวัติ = 23.2%) แต่ implied multiple แค่ <b>EV/LTM rev 5.1x</b> = ไม่ได้แพงไร้เหตุผล gap ปิดได้</p>
+        <p class="flag">🗺️ <b>Price Map</b> — Accumulation <b>$62–72</b> (ตรงกับ zones.json เดิม [60–68] พอดี) · Decision <b>$75–96 ← ราคาอยู่ตรงนี้</b> · Confirmation $96–107 (ยึดคืน EMA200 96.53 / SMA200 107.30) · Bull FV $133–136 · Execution premium &gt; $142 (= capped call cap $141.88)</p>
+        <p class="flag bad">🚩 <b>กำแพงเงินสด 2027–28 ~$835M</b> — ใช้สิทธิซื้อ HQ Somerville $374.6M ภายใน 31 ธ.ค. 2027 + convertible $460M ครบ 1 มิ.ย. 2028 · เทียบเงินสดบนงบบริษัท $472.7M + FCF ~$79M = ต้อง refinance หรือออกหุ้น (ใส่ dilution 1.5%/ปี × 5 ปีในโมเดลแล้ว)</p>
+        <p class="flag bad">🚩 <b>op margin ยุบ 1,074bps</b> (ไตรมาสล่าสุด 12.5% vs ปีก่อน 23.2%) · ครึ่งหนึ่งแก้ได้ (R&amp;D +98.5% จาก OCS Kidney) อีกครึ่งเป็นโครงสร้าง — service ขึ้นเป็น <b>41.5% ของรายได้ที่ GM 35%</b> vs product 77% · <b>Liver = 77.9% ของรายได้ทั้งบริษัท</b> · Heart +3.8% · Lung −45.8%</p>
+        <p class="flag good">🟢 SBC สะอาดมาก 5.5% ของรายได้ (เทียบ AXON 18.9%) · convert conversion price $94 ยัง OTM + capped call คุ้มถึง $141.88 → dilution ทางเศรษฐกิจถูก neutralize ในช่วง $94–142</p>
+      </div>
+    </article>
+
+    <article class="pick hold">
+      <div class="ph"><span class="tk">AVAV</span><span class="sz">#30 ใหม่</span><span class="sp">AeroVironment · ถือ 1.15% (เป้า 1.5) · P/L −6.7%</span></div>
+      <div class="pf">
+        <div><span class="k">Base FV</span><span class="v num">$70.28</span></div>
+        <div><span class="k">Bull FV</span><span class="v num">$133.03</span></div>
+        <div><span class="k">MC P50 / P90</span><span class="v num">$67.28 / $100.03</span></div>
+        <div><span class="k">ราคา 14 ส.ค.</span><span class="v num">$192.81</span></div>
+        <div><span class="k">MoS vs Base</span><span class="v num down">−174.3%</span></div>
+        <div><span class="k">ตำแหน่ง Base→Bull</span><span class="v num down">195.3%</span></div>
+      </div>
+      <div class="body">
+        <p class="why">🔴 <b>ราคาสูงกว่า P90 ถึง 1.93 เท่า</b> — มีแค่ <b>7 จาก 20,000 รอบ</b> ที่ Monte Carlo ไปถึง $192.81 (percentile 99.96) = ตลาด price การ execute เกินฐานไปมาก · <b>แต่ราคาไม่ได้ไร้เหตุผล</b> ในชุด super-bull ที่ยัง coherent (g1 16% · margin 23% ปี 6) FV ขึ้นไปถึง ~$201 ได้ = มันคือ <b>เดิมพัน execution 3 ชั้นซ้อน</b> (ซ่อม segment BlueHalo + directed energy เข้าสายผลิตจริง + tariff กันตลาดในประเทศ)</p>
+        <p class="why"><b>g1 organic ไม่ใช่ +141%:</b> FY2026 โต +140.9% <b>เป็น M&amp;A ล้วน</b> (BlueHalo ปิดดีล 1 พ.ค. 2025 = วันแรกของปีบัญชีพอดี) → ตัวเลข like-for-like ตัวแรกคือ guide FY2027 <b>+7.5% ถึง +12.6%</b> · ตั้ง g1 = 11.5% (ครึ่งบน เพราะ Locust ~$400M และภาษี Section 232 ออกหลัง guide 6 สัปดาห์)</p>
+        <p class="flag">🗺️ <b>Price Map</b> — ⚠️ โซน DCF $70–74 <b>ต่ำกว่า 52w low ราคาไปไม่ถึง = ห้ามใช้เป็นโซนซื้อ</b> (บทเรียน MU ซ้ำอีกเคส) · ใช้โซนกราฟแทน: Accumulation <b>$163–175</b> (SMA50 163.22 · EMA50 168.99 · SMA100 174.18) · Decision <b>$186–196 ← ราคาอยู่ตรงนี้</b> · Confirmation &gt; $204–208 (EMA200) · Execution premium &gt; $226 (SMA200 ≈ analyst mean 225.77)<br>📌 zones.json ยัง buy_range [140–155] = เก่า (เขียนก่อน Locust 7 ส.ค.) — <b>เสนอ rebase เป็น $163–175 รอนายท่านเคาะ</b></p>
+        <p class="flag bad">🚩 <b>Restatement + material weakness</b> (8-K Item 4.02 · 22 มิ.ย. 2026) — งบไตรมาส FQ3 ใช้ไม่ได้ต้อง restate · goodwill impairment 151.3 → <b>240.7</b> · net loss ต่ำไป $87.3M · ฝ่ายบริหารสรุปว่า ICFR ไม่มีประสิทธิผล · ต้นตอ = Space Force สั่ง stop-work แล้ว terminate โครงการ BADGER<br>⚖️ <b>ตัดสินกลาง: เป็น "ธงเฝ้าดู" ยังไม่เข้าข้อยกเว้นของกฎแม่ "ไม่ขายขาดทุน"</b> — non-cash · บริษัทตรวจเจอเองแจ้งเอง · ไม่แตะ revenue/เงินสด · <b>จะยกระดับก็ต่อเมื่อ</b> restate ครั้งที่ 2 · หรือแตะ revenue recognition (มี unbilled AR $570.4M รออยู่) · หรือ SEC comment letter · หรือปีหน้ายัง remediate ไม่ได้</p>
+        <p class="flag bad">🚩 <b>BlueHalo ยังไม่สร้างกำไร + หุ้นเพิ่ม 79%</b> — segment SCDE ทำ adj EBITDA $1.4M บนรายได้ $149.2M (<b>0.9%</b>) ในไตรมาสที่ดีที่สุดของบริษัท · GM ทั้งบริษัทร่วง 13.5pp (38.8% → 25.3%) · <b>guide FY2027 = margin 14.5% เท่าเดิมเป๊ะ</b> = บริษัทเองไม่ guide margin expansion · หุ้น 28.27M → <b>50.61M</b><br>🚩 <b>FY2026 เผาเงินสดในปีที่รายได้สูงสุดเป็นประวัติการณ์</b> — OCF −$78.4M · FCF ≈ −$164.6M (working capital ล้วน: unbilled AR −159.0 · inventory −111.6) · funded backlog $1.2B ครอบแค่ ~55% ของ guide</p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="card info">
+    <h3>3) ความหมายต่อ decision</h3>
+    <p><b>TMDX</b> — เติมได้ตามกติกา zone/sleeve ปกติ แต่ขอบเขตที่ valuation หนุนจริงคือ <b>ย่อเข้า $75–80 ลงไป</b> (Accumulation $62–72 ตรงกับ Base FV)<br>
+    <b>AVAV</b> — ราคาเหนือ P90 มาก → <b>ลดขนาดไม้ + ใช้ limit ที่โซนกราฟ $163–175 แทนไม้ตลาด</b> ไม่ใช่ห้ามซื้อ<br>
+    <b>ทั้งคู่ติดลบ → ❌ ห้ามเสนอ trim ทุกกรณี</b> ตามกฎแม่ "ไม่ขายขาดทุน" (TMDX −11.7% · AVAV −6.7%)</p>
+    <p>🔴 <b>ย้ำกติกา:</b> ห้ามใช้ "ราคาเหนือ DCF P90" เป็นประตูห้ามซื้อ — DCF ให้ FV ต่ำกว่าตลาดอย่างเป็นระบบกับ compounder คุณภาพ (CRWD base $27.95 vs ราคา $225 · PANW $70 vs $396 · ARM $38 vs $281) · valuation ใช้ <b>ปรับขนาดไม้</b> ได้ ใช้ <b>ห้ามซื้อ</b> ไม่ได้ · และห้าม override sleeve cap / binary-event gate / no-chase / zone</p>
+  </div>
+</section>
+
 <footer class="foot">
   <p class="sign">เครื่องมือช่วยคิด decision สุดท้ายของนายท่านครับ</p>
   <p>รอบ Market Open · 18 ส.ค. 2026 21:15 น. เวลาไทย · สายลับ 6 เซกเตอร์ + macro 1 ตัว รันขนานกัน แล้ว agent กลางตัดสินทั้งหมดเอง · %พอร์ตทุกตัวเป็นค่า realtime จาก scan · เอกสารนี้เป็นเครื่องมือช่วยคิด ไม่ใช่คำแนะนำการลงทุน</p>
