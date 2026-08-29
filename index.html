@@ -10,6 +10,7 @@
 <style>*{box-sizing:border-box}html,body{margin:0;padding:0}img{max-width:100%}</style>
 </head>
 <body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;700;800&display=swap">
 <style>
 :root{
   --ground:#FBF9F5; --surface:#FFFFFF; --surface-2:#F5F1E8;
@@ -151,6 +152,8 @@ td.r{text-align:right;white-space:nowrap}
 .cal .row.hot{background:var(--warn-bg)}
 .cal .row.hot .d{color:var(--warn)}
 
+.note{font-size:.82rem;line-height:1.62;color:var(--muted)}
+.note b{color:var(--ink-2)}
 .foot{border-top:1px solid var(--rule);padding-top:18px;display:flex;flex-direction:column;gap:10px;font-size:.8rem;line-height:1.62;color:var(--muted)}
 .sign{font-size:1rem;font-weight:700;color:var(--ink);letter-spacing:-.01em}
 @media (max-width:430px){
@@ -508,6 +511,65 @@ td.r{text-align:right;white-space:nowrap}
     <p>❌ <b>ไม่แตะรอบนี้:</b> NFLX (เกินเพดาน $72 ที่นายท่านตั้งเอง) · KTOS / OKLO / ONDS (ห้ามเติม) · CLPT (ยังแขวน) · RKLB (ต่ำกว่า $100)</p>
   </div>
   <p class="note">เงินสด 9.6% สูงกว่าเป้า 7% — <b>ตามกติกาถือเป็นสถานะที่ยอมรับได้ ไม่ใช่เหตุเร่งลงเงิน</b> โดยเฉพาะสัปดาห์ที่มีตัวเลขจ้างงานและงบ AVGO คร่อมอยู่</p>
+</section>
+
+<section id="earthevans">
+  <h2>📐 Earth Evans Update <span class="tag">29 ส.ค. 2026 · สมุด 36 ตัว</span></h2>
+
+  <div class="card info">
+    <p><b>ไม่มีตัวไหนต้องอัพเดทจากงบรอบนี้</b> — เช็ก 34 ตัวในสมุดแล้ว ไตรมาสล่าสุดที่รายงานของทุกตัว ≤ วัน as_of ในไฟล์ · 4 ตัวที่เพิ่งออกงบสัปดาห์นี้ (NVDA / CRWD / SNPS 26 ส.ค. · RBRK 27 ส.ค.) อัพไปแล้วเมื่อ 27–28 ส.ค.</p>
+    <p>📅 <b>คิวงบถัดไป:</b> PANW 2 ก.ย. · AVGO 3 ก.ย. · AVAV 10 ก.ย. · COST 25 ก.ย. · MU 1 ต.ค.</p>
+    <p>→ รอบนี้จึงใช้ขยาย coverage: <b>+WM +ELV</b> · ข้าม ASTS / CLPT / IONQ ที่ %พอร์ตสูงกว่า เพราะยังไม่มีกำไร-ไม่มีรายได้จริง FCFF DCF ให้คำตอบขยะ · <b>CEG อยู่คิวถัดไป</b></p>
+  </div>
+
+  <div class="picks">
+
+    <article class="pick gate">
+      <div class="ph"><span class="tk">WM</span><span class="sz">Waste Management · ตัวใหม่</span><span class="sp">ถือ 0.92% → เป้า 0.75 [0.5-1.5]</span></div>
+      <div class="pf">
+        <div><span class="k">ราคา (28 ส.ค.)</span><span class="v num">$219.66</span></div>
+        <div><span class="k">Base FV @ROIC จริง</span><span class="v num">$150.95</span></div>
+        <div><span class="k">Bull FV @ROIC จริง</span><span class="v num">$207.64</span></div>
+        <div><span class="k">MC P50 · P95</span><span class="v num">$109 · $142</span></div>
+        <div><span class="k">PV terminal</span><span class="v num up">56.1%</span></div>
+      </div>
+      <div class="body">
+        <p class="why"><b>ตาราง terminal ROIC:</b> 1× WACC → Base $110.01 / Bull $148.18 · <b>1.4× (= ROIC จริง 10.3%) → Base $150.95 / Bull $207.64</b> · 2× → $181.66 / $252.24 · 3× → $205.54 / $286.93</p>
+        <p class="why"><b>Multiple cross-check ให้คำตอบตรงข้ามกับ DCF และนั่นคือประเด็น:</b> WM ถูกที่สุดในกลุ่มทุกตัวชี้ — EV/EBITDA 14.2× vs peer median 16.0× (RSG 15.6 · WCN 16.4 · CWST 17.6) → implied <b>$254</b> · analyst mean target $259.92</p>
+        <p class="flag">🔴 <b>dcf_validity: INVALID AS A BUY GATE</b> — ตกด้วยเหตุเดียวคือราคาอยู่<b>เหนือ P95 อีก 55%</b> · ส่วน PV terminal 56.1% ผ่านสบาย (ดีอันดับ 2 ของสมุด รองจาก CAT 52.9%) · กลับด้าน: บน growth-adjusted WM แพงที่สุดในกลุ่ม = จ่ายมัลติเพิลเต็มให้ตัวที่โตช้าสุด</p>
+        <p class="flag bad">🔴 <b>ธง:</b> หนี้แฝง ARO (landfill closure/post-closure) <b>$3,569M</b> ที่ yfinance ไม่นับ — บวกเข้าหนี้แล้ว · Stericycle เป็นจุดอ่อนจริง: Healthcare Solutions รายได้ <b>หด −1.2% y/y</b> กำไรจาก operations เหลือ <b>$2M</b> บนรายได้ $638M · tangible book ติดลบ</p>
+        <p class="flag good">🟢 <b>ตัวเลข Q2 ไม่ได้เสีย:</b> OCF +11.7% · FCF $1.10B vs $0.82B · การหั่น guidance เป็นการหั่น<b>รายได้อย่างเดียว</b> โดย EBITDA / margin / FCF คงหรือขึ้น = number change ไม่ใช่ thesis change · CEO เปลี่ยน (Morris แทน Fish 4 ม.ค. 2027) = internal succession ปกติ</p>
+      </div>
+    </article>
+
+    <article class="pick">
+      <div class="ph"><span class="tk">ELV</span><span class="sz">Elevance Health · ตัวใหม่</span><span class="sp">ถือ 0.87% → เป้า 0.6 [0.4-1]</span></div>
+      <div class="pf">
+        <div><span class="k">ราคา (28 ส.ค.)</span><span class="v num">$394.43</span></div>
+        <div><span class="k">Base FV (1× WACC)</span><span class="v num">$463.47</span></div>
+        <div><span class="k">Bull FV</span><span class="v num">$688.03</span></div>
+        <div><span class="k">MoS เทียบ Base</span><span class="v num up">+14.9%</span></div>
+        <div><span class="k">PV terminal</span><span class="v num up">61.3%</span></div>
+      </div>
+      <div class="body">
+        <p class="why"><b>ROIC จริงของ ELV = 9.00% = 1.14× WACC เท่านั้น</b> (มี goodwill + intangibles $39.3B จาก Carelon อยู่ในตัวหาร) → <b>แถว 1× คือแถวจริง ไม่ใช่ artifact ของกติกา</b> — ตัวแรกในสมุดที่กติกา terminal ROIC แทบไม่กัดเลย · แถวอื่น: 1.5× → $641.57 · 2× → $730.61</p>
+        <p class="why"><b>Monte Carlo:</b> P5 $281.96 · P50 $458.47 · P95 $669.55 → ราคาอยู่ที่<b>เปอร์เซ็นไทล์ที่ 28</b> · 🎯 P5 $281.96 ≈ low ที่เคยเกิดจริงมาแล้ว 2 ครั้ง ($274.66 ส.ค. 25 · $280.74 มี.ค. 26)</p>
+        <p class="flag good">🟢 <b>dcf_validity: VALID AS A BUY GATE</b> — PV terminal 61.3% + ราคาอยู่กลาง distribution = <b>ตัวแรกที่เปิด coverage แล้วผ่านทั้งสองด่าน</b> DCF ตัวนี้ใช้ตัดสินได้จริง ไม่ใช่แค่เข็มทิศ · <b>Reverse DCF:</b> ที่ $394 ตลาดขอ terminal ROIC แค่ 7.00% (0.89× WACC) = price ว่า ELV จะทำลายมูลค่าตลอดไป ทั้งที่จุดต่ำสุดยังทำได้ 9.00% และ FY2024 ทำได้ 11.56%</p>
+        <p class="why">⚖️ <b>เทียบ UNH ในสมุด</b> (template เดียวกัน PV terminal 61.4% เท่ากันแทบตรง แต่คำตอบตรงข้าม): UNH ราคาอยู่ <b>−9.6% เหนือ</b> Base FV ตัวเอง ส่วน ELV <b>+14.9% ใต้</b> → ELV ถูกกว่า UNH ~24pp เทียบ DCF ของตัวเอง · เหตุผล: UNH เดินหน้าซ่อมไปก่อน 1 ปี (Q2 MCR ดีขึ้น 270bp) ขณะที่ MLR ของ ELV แย่ลง</p>
+        <p class="flag bad">🔴 <b>ธง:</b> มาร์จิ้นยังไม่เทิร์นจริง — Q2 benefit expense ratio <b>แย่ลง 80bp เป็น 89.7%</b> + opex ratio +100bp และผู้บริหารบอกจะเร่งลงทุนอีกใน H2 → ด่านแรกคืองบ Q3 กลาง ต.ค. · Q2 ที่ beat ไม่ได้มาจากธุรกิจ: adj EPS $7.45 มี ~$0.80 เป็น below-the-line (NII + ภาษี) clean ≈ $6.65 vs $8.84 ปีก่อน · DOJ FCA เรื่อง MA coding ยังเปิด ไม่มี accrual · โมเดลร้อนไป +14.4% ปีแรก → <b>อ่าน Base เป็นย่าน $440–465 ไม่ใช่จุด $463</b></p>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="card">
+    <p>🎯 <b>ความหมายต่อ decision — overlay เท่านั้น ไม่เปลี่ยนตารางช้อนรอบเช้า</b></p>
+    <p><b>ELV</b> ถูกจริงตาม DCF แต่<b>ยังไม่เข้าเกณฑ์ขยายไม้</b>: ต่ำกว่า Base FV 14.9% (เกณฑ์ต้อง ≥15%) และถือ 0.87% <b>เหนือ</b>เป้า 0.6 อยู่แล้ว (ยังในกรอบ band) = ไม่ใช่คิวเติม · ถ้าลงแตะโซน <b>$355–375</b> (SMA200 + EMA200 + low ปี 2024 ซ้อนกัน 3 เส้น) ค่อยว่ากันใหม่</p>
+    <p><b>WM</b> ใช้ DCF เป็นด่านไม่ได้ → ตามกติกาให้ใช้ EMA200 แทน: ราคาใต้ EMA200 แค่ −2.4% (เกณฑ์ขยายไม้ต้องใต้ ≥10%) = ไม่ปลดล็อก · ถือ 0.92% เหนือเป้า 0.75 แล้ว · โซนสะสมจริงคือ <b>$205–213</b> ซึ่งทับ Bull FV ที่ ROIC จริง ($207.64) พอดี — จุดเดียวในไฟล์ที่ valuation กับกราฟพูดตรงกัน</p>
+  </div>
+
+  <p class="note">⚠️ <b>กับดักข้อมูลที่เจอซ้ำ 2 ตัวรวด:</b> แท่งรายวัน 28 ส.ค. ของทั้ง WM และ ELV ส่ง <b>Close = NaN</b> และ <b>previousClose เป็นของผิดวัน</b> → ต้องกู้ราคาจากแท่ง 60 นาที + fast_info ทุกครั้ง ห้ามเชื่อ previousClose ตรง ๆ</p>
+  <p class="note"><b>ย้ำ:</b> valuation เป็น <b>overlay</b> — ห้าม override กติกา sleeve cap / binary-event / no-chase / zone · DCF อ่านเป็น <b>Range</b> ไม่ใช่จุด</p>
 </section>
 
 <footer class="foot">
