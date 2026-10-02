@@ -296,7 +296,7 @@ td.r{text-align:right;white-space:nowrap}
 </section>
 
 <section>
-  <h2>🟢 ช้อน <span class="tag">2 ไม้ตลาด + 6 ใบ limit</span></h2>
+  <h2>🟢 ช้อน <span class="tag">2 ไม้ตลาด + 4 ใบ limit</span></h2>
   <p class="note">🐢 ทีละไม้ · 1 ไม้ ≈ 1,000฿ · วันนี้กระดานเขียวทั้งแผง ⇒ ตัวที่ผ่านส่วนใหญ่ได้แค่ <b>ใบ limit ใต้ราคา</b> ตามที่ backtest หนุน (ตัวห่างยอด 60 วัน ≥15% ตั้งใบ &minus;3% ฟิลใน 10 วัน <b>74%</b>)</p>
   <div class="picks">
 
@@ -374,28 +374,10 @@ td.r{text-align:right;white-space:nowrap}
       </div>
     </article>
 
-    <article class="pick">
-      <div class="ph"><span class="rank">5</span><span class="tk">SNPS</span><span class="sz">1 ไม้ limit</span><span class="sp">$490.79 <span class="up">+0.05%</span></span></div>
-      <div class="pf">
-        <div><div class="k">ไม้ตลาด</div><div class="v num">&mdash;</div></div>
-        <div><div class="k">ไม้ limit</div><div class="v num up">1 ไม้</div></div>
-        <div><div class="k">ราคา limit</div><div class="v num">$466&ndash;476</div></div>
-        <div><div class="k">%พอร์ต → เป้า</div><div class="v num">1.26% → 1.5</div></div>
-        <div><div class="k">ห่างเป้า</div><div class="v num">0.24 pp</div></div>
-        <div><div class="k">🔊 / 🧱</div><div class="v">⚠️🔵 · ↔/↔</div></div>
-        <div><div class="k">🧭 disrupt</div><div class="v">ต่ำ</div></div>
-      </div>
-      <div class="body">
-        <p class="why">⚠️ <b>BLOW-OFF เมื่อวาน 1 ต.ค. (+12.78% · RVOL 3.3×)</b> → กติกา 2 จังหวะจาก backtest:<br>
-        ① <b>วันนี้ไม่ซื้อไม้ตลาด</b> — low ต่ำกว่าปิด ≥5% ใน 10 วัน = <b>65% ของครั้ง</b> (base 47%) ⇒ ตั้งใบ &minus;3&hellip;&minus;5%<br>
-        ② <b>แต่ยกอันดับขึ้นสูง</b> — r250 <b>+49.7% · win 75%</b> (base +21.8% / 68% · n=399)<br>
-        <b>โควตา: ยังไม่มีไม้ในชั้น $440&ndash;470 เลย</b> · pctl 99.59 · DCF VALID</p>
-        <p class="flag">zone MANUAL &ldquo;ย่อเข้าแนวรับ/ใกล้ EMA200 เท่านั้น&rdquo; — ปัจจุบัน <b>+11.3% เหนือ EMA200 ⇒ ไม้ตลาดไม่ผ่าน ใบใต้ราคาเท่านั้น</b></p>
-      </div>
-    </article>
+    
 
     <article class="pick">
-      <div class="ph"><span class="rank">6</span><span class="tk">AVGO</span><span class="sz">1 ไม้ limit</span><span class="sp">$355.34 <span class="up">+3.40%</span></span></div>
+      <div class="ph"><span class="rank">5</span><span class="tk">AVGO</span><span class="sz">1 ไม้ limit</span><span class="sp">$355.34 <span class="up">+3.40%</span></span></div>
       <div class="pf">
         <div><div class="k">ไม้ตลาด</div><div class="v num">&mdash;</div></div>
         <div><div class="k">ไม้ limit</div><div class="v num up">1 ไม้</div></div>
@@ -412,6 +394,16 @@ td.r{text-align:right;white-space:nowrap}
       </div>
     </article>
 
+  </div>
+
+  <div class="card avoid">
+    <h3>🔧 แก้ไขหลังนายท่านทักท้วง — ถอด SNPS ออกจากตารางช้อน</h3>
+    <p>นายท่านถามว่า <i>&ldquo;SNPS หุ้นพุ่งไปขนาดนั้นแล้วทำไมยังอยู่ใน list ให้ช้อนอีก&rdquo;</i> — <b>ถูกต้อง ผมผิด 2 ชั้น</b></p>
+    <p><b>① เอา overlay ไป override zone</b> — SNPS เป็น MANUAL zone ที่เขียนว่า <i>&ldquo;ย่อเข้าแนวรับ/ใกล้ EMA200 เท่านั้น&rdquo;</i> · <b>EMA200 = $440.87</b> · ใบ $466&ndash;476 ถ้าฟิลที่ $470 ก็ยัง <b>+6.6% เหนือ EMA200 · +12.5% เหนือ EMA50 ($417.63)</b> = ไม่ใช่ &ldquo;ใกล้ EMA200&rdquo; เลย · ตัวเลข &minus;3&hellip;&minus;5% มาจาก backtest BLOW-OFF ซึ่งเป็น <b>overlay</b> และกติกาเขียนตรง ๆ ว่า <b>ห้าม override zone</b> — backtest ใช้ <i>ยกอันดับตัวที่ผ่าน zone อยู่แล้ว</i> ไม่ใช่สร้างจุดซื้อขึ้นมาใหม่</p>
+    <p><b>② valuation ชี้ตรงข้ามกับที่เขียนไว้</b> — Earth Evans <code>as_of</code> 1 ต.ค. รันที่ราคา <b>$434.94 (ก่อน gap)</b> ให้ <b>Bull FV $386.79</b> · P90 $364.51 · accumulation zone ของโมเดลเอง <b>$366&ndash;390</b> ⇒ ราคาวันนี้ $487 = <b>เหนือ Bull FV +25.9% · เหนือ P90 +33.6%</b> · และผมหยิบ <code>pctl 99.59</code> ไปใส่การ์ดช้อนเหมือนเป็นข้อดี ทั้งที่ <b>99.59 คือสัญญาณว่าแพง = ตัวเลขฝั่ง trim</b></p>
+    <p class="flag">เหตุที่พุ่งมีจริง ไม่ใช่ของลอย: <b>SNPS Investor Day 30 ก.ย. 2026 นิวยอร์ก</b> [<i>confirmed_pr</i> — PR Synopsys 22 ก.ค.] → long-term targets / IP model ใหม่ / agentic EDA pricing → 1 ต.ค. เปิด gap $467.85 จากปิด $434.94 (+7.6%) ปิดวัน <b>+12.8%</b></p>
+    <p><b>แล้วควรเป็น 🔻 Trim ไหม — ไม่ได้เหมือนกัน</b>: ① P/L บวก ✅ ② ติดธง ⚠️ BLOW-OFF ✅ ③ ธีม AI ✅ ⑤ ไม่เคย trim ✅ ⑥ VALID + pctl 99.59 ≥90 ✅ <b>แต่ ④ ถือ 1.26% ต่ำกว่าเกต 1.5% ⇒ ตก</b> (เคสเดียวกับ ARM ที่ 1.49%)</p>
+    <p class="flag bad">⇒ <b>SNPS = ⏸️ ไม่ทำอะไรรอบนี้</b> · ถ้าจะตั้งใบ ต้องลงไป <b>$435&ndash;445</b> (ปิด gap ที่ $434.94 ชนกับ EMA200 $440.87 พอดี) หรือลึกถึงโซน accumulation <b>$366&ndash;390</b></p>
   </div>
 </section>
 
@@ -575,8 +567,8 @@ td.r{text-align:right;white-space:nowrap}
     <p><b>2. UBER</b> — ใบ limit 1 ไม้ $65.50&ndash;66.50</p>
     <p><b>3. VST</b> — 1 ไม้ตลาด ที่ ~$137 · + ใบ limit 1 ไม้ $133&ndash;135.50</p>
     <p><b>4. AVAV</b> — ใบ limit 1 ไม้ $136&ndash;139.50</p>
-    <p><b>5. SNPS</b> — ใบ limit 1 ไม้ $466&ndash;476</p>
-    <p><b>6. AVGO</b> — ใบ limit 1 ไม้ $344&ndash;352</p>
+    <p><b>5. AVGO</b> — ใบ limit 1 ไม้ $344&ndash;352</p>
+    <p>⏸️ <b>SNPS — ไม่ทำอะไร</b> (ถอดออกหลังนายท่านทักท้วง · ใบที่ถูกต้องคือ <b>$435&ndash;445</b> ไม่ใช่ $466&ndash;476)</p>
     <p><b>7. 🥇 ทอง 1 บาท เดือน ต.ค.</b> — เกณฑ์ผ่านครบ ซื้อได้ที่ <b>66,400 ฿/บาททอง</b> (ไม่ต้องรีบ แต่ห้ามข้ามเดือน)</p>
     <p><b>8. 🪙 ทองไม้ $30</b> — แถว <b>$4,224 หรือต่ำกว่า</b></p>
     <p><b>9. ₿ BTC</b> — ยังไม่ซื้อ รอย่อแตะ <b>$82,142</b> (MA20)</p>
