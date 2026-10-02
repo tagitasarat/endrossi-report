@@ -173,12 +173,18 @@ td.r{text-align:right;white-space:nowrap}
 </header>
 
 <section>
-  <h2>🔧 แก้ข้อมูลผิดของรายงานเมื่อวาน <span class="tag">สำคัญ</span></h2>
+  <h2>🔧 แก้บันทึกเก่าในไฟล์ <span class="tag">5 เรื่อง</span></h2>
   <div class="card avoid">
-    <h3>ไม่มี shutdown จริง — รายงาน 1 ต.ค. ผิด</h3>
+    <h3>① ไม่มี shutdown จริง — รายงาน 1 ต.ค. ผิด</h3>
     <p>ที่เขียนไว้เมื่อวานว่า <b>&ldquo;รัฐบาลสหรัฐฯ shutdown จริงเริ่มเที่ยงคืน 1 ต.ค. · DoD ห้ามทำสัญญาใหม่ · NFP เสี่ยงเลื่อน&rdquo; = ผิด</b></p>
     <p>ความจริง: <b>CR ลงนามไปแล้ว 2 ก.ย. 2026 (P.L. 119-103) ให้งบถึง 11 ธ.ค. 2026</b> (สภาผ่าน 370-48) — ยืนยันโดยสายลับ 2 ทีมแยกกัน + CRS R49353 · เหลือแค่ <b>DHS</b> ที่ยัง partial</p>
     <p class="flag good">หลักฐานชี้ขาด: <b>BLS เผยแพร่ NFP ตรงเวลาวันนี้</b> — ถ้า shutdown จริงจะไม่มีตัวเลขออก ⇒ <b>กระแสสัญญา DoD ไตรมาสนี้ปกติ (KTOS · AVAV · RTX · AXON ไม่ติดเบรก)</b> · เส้นตายถัดไป = <b>11&ndash;12 ธ.ค. 2026</b></p>
+    <p class="flag">อีก 4 เรื่องที่แก้ในไฟล์รอบนี้:</p>
+    <p>② <b>วันงบ TSLA 28 ต.ค. → 21 ต.ค.</b> (<code>earnings_calendar.json</code>) — 2 ผลค้นอิสระอ้าง Form 8-K ของ Tesla · <b>คงสถานะ <i>estimate</i></b> เพราะ sec.gov ถูก proxy บล็อก = ไม่ได้เห็น filing ด้วยตา · ⚠️ ขัดกับของเดิม (TipRanks) 7 วัน</p>
+    <p>③ <b>CRML dilution &ldquo;~41%&rdquo; = ยืนยันไม่ได้</b> — อัตราแลกจริงเป็น<b>ช่วง 0.025&ndash;0.045 CRML ต่อ 1 หุ้น EUR</b> ⇒ ขนาด dilution ยังไม่ล็อก · แก้บันทึกใน <code>watch_pending.json</code> แล้ว</p>
+    <p>④ <b>ป้าย &ldquo;เซสชันเต็มล่าสุด&rdquo; ใน <code>volume_scan.py</code> ล้าหลัง 1 วัน</b> — ชี้ 30 ก.ย. ขณะแท่ง 1 ต.ค. มีอยู่จริง (เช็กแล้ว SPY/QQQ/NVDA/AVGO/TSLA ครบและ 1D% ตรง) ⇒ <b>ธง BLOW-OFF ของ SNPS/ACN เป็นของเซสชัน 1 ต.ค.</b> ไม่ใช่ 30 ก.ย. · ไม่ใช่ข้อมูลเพี้ยน แค่ป้ายผิด</p>
+    <p>⑤ 🔧 <b><code>scorecard.py</code> ล้มด้วย <code>KeyError: 'yf_symbol'</code></b> (8 รายการใน <code>avoid_log.json</code> ไม่มี field นั้น) → เพิ่ม fallback ไปใช้ <code>ticker</code> · scorecard ของศุกร์นี้จึงออกได้</p>
+
   </div>
 </section>
 
@@ -208,7 +214,7 @@ td.r{text-align:right;white-space:nowrap}
 
   <div class="card avoid">
     <h3>2 · 🔴 NFLX — ข่าวร้ายตัวที่ถือ ต้องอ่าน</h3>
-    <p>ประกาศ <b>ซื้อ Warner Bros. Discovery มูลค่ากิจการ ~$82.7bn</b> (จ่าย $27.75/หุ้น WBD = <b>เงินสด $23.25</b> + หุ้น NFLX $4.50 ⇒ <b>เงินสดหนักมาก</b>) ได้สตูดิโอ + HBO / HBO Max</p>
+    <p>ประกาศ <b>ซื้อ Warner Bros. Discovery มูลค่ากิจการ ~$82.7bn</b> (จ่าย $27.75/หุ้น WBD = <b>จ่ายสด $23.25</b> + หุ้น NFLX $4.50 ⇒ <b>เงินสดหนักมาก</b>) ได้สตูดิโอ + HBO / HBO Max</p>
     <p>ตามมาด้วยการ<b>หั่นคำแนะนำชุดใหญ่</b>: Huber จาก Overweight → <b>Underweight เป้า $92</b> · Rosenblatt Buy → Neutral $105 · Pivotal Buy → Hold $105 · บวกกับ Q2 สมาชิกลดเกือบ 1 ล้าน + guide ปี 2026 +12&ndash;14% (ตลาดคาด ~16%) + <b>Reed Hastings ลงจากประธานบอร์ด</b></p>
     <p class="flag bad"><b>นัยต่อ decision: NFLX ย้ายเข้า Avoid วันนี้</b> — ราคา $67.55 ใต้โซน $68&ndash;75 + ทรงลง = มีดตก · 🔴 <b>P/L &minus;27.7% ⇒ กฎแม่ห้ามขายขาดทุนคุ้มครอง — Avoid = ห้ามเติมวันนี้ ไม่ใช่สัญญาณขาย</b> · งบ Q3 20 ต.ค.</p>
   </div>
@@ -240,7 +246,7 @@ td.r{text-align:right;white-space:nowrap}
 </section>
 
 <section>
-  <h2>🥇 ทอง / BTC ช้อนตอนไหน</h2>
+  <h2>🥇 ทอง / ₿ BTC ช้อนตอนไหน</h2>
 
   <div class="card buy">
     <h3>🎉 ไม้ทองเดือน ก.ย. ปิดเคสแล้ว</h3>
@@ -276,7 +282,7 @@ td.r{text-align:right;white-space:nowrap}
 </section>
 
 <section>
-  <h2>💼 ภาพรวมเซสชัน</h2>
+  <h2>💼 ภาพรวมเซสชันเมื่อคืน <span class="tag">+ ระหว่างวันนี้</span></h2>
   <table>
     <thead><tr><th>ช่วง</th><th>พอร์ต</th><th>ขึ้นแรง</th><th>ลงแรง</th></tr></thead>
     <tbody>
@@ -462,7 +468,10 @@ td.r{text-align:right;white-space:nowrap}
     <p><b>คงเดิม</b>: TSLA (NHTSA FSD recall-track) · TE (bridge ยังไม่ปิด) · OKLO</p>
   </div>
 
-  <h3>📅 ปฏิทินที่ต้องรู้</h3>
+</section>
+
+<section>
+  <h2>📅 ปฏิทินที่ต้องรู้</h2>
   <table>
     <thead><tr><th>วัน</th><th>เรื่อง</th><th>สถานะ</th></tr></thead>
     <tbody>
@@ -492,13 +501,39 @@ td.r{text-align:right;white-space:nowrap}
   </div>
 
   <div class="card trim">
-    <p><b>🧮 คิวรัน Earth Evans ใหม่</b> (valuation เก่ากว่า 60 วัน): ISRG · NFLX · V · MA · AAPL · UNH · HOOD — <b>ISRG กับ NFLX เร่งด่วนสุดเพราะอยู่ในตารางตัดสินใจรอบนี้</b></p>
+    <h2>🧮 Valuation ที่ต้องรีเฟรช</h2>
+    <p><b>คิวรัน Earth Evans ใหม่</b> (valuation เก่ากว่า 60 วัน): ISRG · NFLX · V · MA · AAPL · UNH · HOOD — <b>ISRG กับ NFLX เร่งด่วนสุดเพราะอยู่ในตารางตัดสินใจรอบนี้</b></p>
   </div>
 
   <div class="card info">
-    <h3>🌍 ภาพโลก</h3>
+    <h2>🌍 ภาพโลก</h2>
     <p>🌡️ <b>เย็น</b> (15% ติดธงร้อน) · 65% ของ ETF หุ้นยืนเหนือ EMA200 · US นำโลกนอก US <b>+12.8pp</b> ใน 6 เดือน · 🔥 OVERHEAT = ไต้หวัน (EWT) · ⚡ EXTENDED = QQQ, EWJ</p>
     <p class="flag"><b>ไม่มี ETF ติดธง 🔄 (laggard เริ่มพลิก) ⇒ ไม่ spawn country-scout · ไม่มีเหตุโยกประเทศ</b></p>
+  </div>
+</section>
+
+<section>
+  <h2>⏰ Pending นิ่งแล้วแต่ไม่ยกขึ้นช้อน <span class="tag">กติกาข้อ 5</span></h2>
+  <p class="note">✅ นิ่งแล้ววันนี้ 30 ตัว · ยกขึ้นตารางช้อน 5 ตัว (UBER · ISRG · VST · AVAV · SNPS) + AVGO ที่ขึ้นมาจากฝั่ง &ldquo;ยังไหล&rdquo; · ที่เหลือ<b>ไม่ยกเพราะเหตุนี้</b> — บอกให้ครบ ไม่ปล่อยหายเงียบ</p>
+  <table>
+    <thead><tr><th>เหตุที่ไม่ยก</th><th>ตัว</th><th>หมายเหตุ</th></tr></thead>
+    <tbody>
+      <tr><td><b>ABOVE_ZONE</b> = no-chase</td><td>META · NVDA · TSM · ASML · MU · DE · TMDX</td><td>META $734 vs โซน $540&ndash;570 · NVDA $237 vs $185&ndash;195 · MU +49.8% เหนือ EMA200</td></tr>
+      <tr><td><b>มีดตกจริง</b> (ใต้โซน + ↘)</td><td>NFLX · MP · SOFI · AXON · ASTS · CLPT</td><td>เข้า Avoid ทั้งหมด (ดูส่วน ⚠️ จุดสำคัญ)</td></tr>
+      <tr><td><b>MANUAL แต่ไม่ย่อ</b></td><td>GOOGL · RBRK · IONQ · VRT</td><td>โซนสั่ง &ldquo;ย่อเข้าแนวรับ&rdquo; แต่วันนี้เขียวทั้ง 4 ตัว · RBRK/IONQ 🧭 disrupt <b>สูง</b> = ไม้จิ๋วเท่านั้น</td></tr>
+      <tr><td><b>เพิ่งเติมเมื่อวาน / ขอบบนโซน</b></td><td>KTOS · CEG</td><td>KTOS $43.16 อยู่ขอบบน $40.50&ndash;43.50 ⇒ เติมอีกต่ำกว่า $41.50 · CEG ถือ 0.66% <b>เกินเป้า 0.5 แล้ว</b></td></tr>
+      <tr><td><b>binary ใกล้ + เหนือโซน</b></td><td>MRVL</td><td>Investor Day 6 ต.ค. (4 วัน) · $275 เหนือขอบบน $250&ndash;270</td></tr>
+      <tr><td><b>คำสั่งนายท่าน / กติกาเฉพาะตัว</b></td><td>EOSE · CRML · OKLO · DRAM</td><td>EOSE ⏸️ Hold (17 ก.ย.) · CRML ถัวโดยตั้งใจ + binary 22 ต.ค. · OKLO Avoid · DRAM tail bucket≤0.3</td></tr>
+      <tr><td>✅ <b>ยกแล้วในส่วนทอง</b></td><td>XAUUSD ไม้ $30</td><td>ช้อนแถว $4,224 หรือต่ำกว่า</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>📐 Earth Evans Update</h2>
+  <div class="card">
+    <p><b>ไม่ได้รันรอบนี้</b> — รอบ daily ไม่รัน valuation เอง (ใช้ <code>valuations_summary.json</code> ที่มีอยู่) · <b>คิวที่ต้องรันดูส่วน 🧮 Valuation ที่ต้องรีเฟรช ด้านบน</b></p>
+    <p class="flag">ตัวที่ใช้ตัดสินรอบนี้และ <code>as_of</code> ของมัน: <b>TSM 22 ก.ย.</b> (ใช้สั่ง trim — ยังไม่ stale เพราะงบถัดไป 15 ต.ค.) · <b>AVGO · GOOGL · NVDA · MSFT 22 ก.ย.</b> · <b>SNPS · MU 1 ต.ค.</b> · <b>VST 4 ก.ย.</b> · ⚠️ <b>ISRG 25 ก.ค. และ UBER 22 ส.ค. = เก่า</b> แต่ทั้งคู่ใช้ฝั่งซื้อซึ่งกติกาห้าม valuation override อยู่แล้ว</p>
   </div>
 </section>
 
@@ -534,7 +569,7 @@ td.r{text-align:right;white-space:nowrap}
 </section>
 
 <section>
-  <h2>📋 ตัวไหนควรช้อน <span class="tag">1 ไม้ ≈ 1,000฿</span></h2>
+  <h2>📋 สรุป — ตัวไหนควรช้อน <span class="tag">1 ไม้ ≈ 1,000฿</span></h2>
   <div class="card buy">
     <p><b>1. ISRG</b> — 1 ไม้ตลาด ที่ ~$397 · + ใบ limit 1 ไม้ $388&ndash;395</p>
     <p><b>2. UBER</b> — ใบ limit 1 ไม้ $65.50&ndash;66.50</p>
